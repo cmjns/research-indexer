@@ -1,82 +1,67 @@
 # research-indexer — Specification
 
-> Version: 0.1 (initial)  
+> Version: 0.2
 > Status: Working draft
 
 ---
 
 ## 1. Purpose
 
-A modular, content-agnostic individuation machine for exploring texts. A text is not
-treated as a fixed structure of meaning but as a field of already-moving individuations.
-We do not start from zero: we start with simplexes already underway in the text, and
-we extend them.
+A modular, content-agnostic passage engine for exploring texts as fields of
+individuation. The system runs passages through a corpus driven by a germ,
+producing eddies — local coherences that emerged from the flow.
 
-The system supplies a germ — a role rotation in the simplex network, an aporia, a
-non-closing movement — and iteratively crystallizes a projection from it, tracking where
-differentials converge, diverge, approach limits, or undergo regime change.
+Not a library indexer. Indexing a PDF library is one use case. The same engine
+can run a passage through a corpus of analyst reports, corporate communications,
+or any other text collection.
 
 **Philosophical grounding**: Simondon (individuation, metastability, transduction),
-Serres (the parasite, the triode, noise-as-signal), Deleuze (difference, intensity,
-the virtual), Nagarjuna (prasanga, the MMK as field of potentials).
+Serres (the parasite, the triode, noise-as-signal, the clinamen),
+Deleuze (difference, intensity, the virtual), Nagarjuna (prasaṅga, MMK as field).
 
-**Mathematical grounding**: thermodynamics, information theory, complexity/chaos theory.
+**Mathematical grounding**: thermodynamics, information theory, dynamical systems.
 
-**Epistemic honesty**: this machine runs now, in our historical moment, processing
-now-representations of texts. When we model "historical distance" between Nagarjuna
-and Candrakīrti, we are constructing a modulating representation — not accessing the
-past itself. This construction enters the system explicitly, as metadata on the C-term
-of cross-domain simplexes, with analyst-supplied confidence.
+**Epistemic honesty**: this machine runs now, processing now-representations.
+Historical distance between texts is our construction — it enters as C-term
+metadata on cross-domain simplexes with analyst-supplied confidence.
+No metaphor is allowed to establish a sovereign domain. Metaphors are operators.
 
 ---
 
 ## 2. Core Model
 
-### 2.1 The Primitive: The Modulated 3-Simplex
+### 2.1 The flow is primary
 
-The irreducible unit is the **asymmetric, modulated 3-simplex**, after Serres's
-triode / parasite model:
+Fields do not pre-exist the flow. They are thickenings — regions where the
+flow has passed often enough to sediment vocabulary. An eddy is a local coherence
+in the flow, not a container of it. Every eddy forms in a flow that precedes it
+and continues past it.
+
+We do not model the pre-individual as such. We start already moving. The
+SimplexNetwork is the primitive — it is what we have when we begin.
+
+### 2.2 The primitive: modulated 3-simplex
+
+The irreducible unit is the asymmetric, modulated 3-simplex (Serres's triode):
 
 ```
 A ──[C]──► B
 ```
 
-- **A** (source/emitter): the term from which signification flows
-- **B** (target/receiver): the term individuated by the relation
-- **C** (modulator): the relation-to-the-relation; modulates gain and direction of A→B
-  without being consumed by it
+- **A** (source): signification flows from here
+- **B** (target): individuated by the relation
+- **C** (modulator): the relation-to-the-relation; shapes A→B without being consumed
 - **Asymmetry**: A→B ≠ B→A; the relation is directional and locally irreversible
-- **Role mobility**: any term may be A in one simplex, C in an adjacent simplex;
-  roles are local, not essential properties of terms
+- **Role mobility**: any term may be A in one simplex, C in an adjacent one
 
-A simplex carries:
-- `intensity`: magnitude of the A→B relation under modulation C
-- `asymmetry`: deviation from symmetry in the A↔B exchange; [-1, 1]
-- `gain`: degree to which C amplifies or attenuates A→B
+A simplex carries: `intensity`, `asymmetry`, `gain`, and optionally
+`historical_context` (our now-representation of temporal/institutional distance).
 
-### 2.2 We Start Already Moving
+### 2.3 The aporia as role rotation
 
-The pre-individual cannot be individuated symbolically. Any asymmetric intensity we
-can represent is already a simplex. We do not model a prior substrate; we do not
-attempt to represent the pre-individual field as such.
-
-The **SimplexNetwork is the primitive**. When we ingest a text, we are not mapping
-a pre-individual field — we are extracting already-individuated simplexes from
-already-moving language. The ingestion process continues a movement the text has
-already begun.
-
-The **PotentialField** is derived from the SimplexNetwork: a scalar projection useful
-for thermodynamic measures. It is not prior to the network; it is computed from it.
-
-```
-φ(term) = f(intensities of all simplexes in which term participates, weighted by role)
-```
-
-### 2.3 The Aporia as Role Rotation
-
-An aporia is not a special entity. It is a **role rotation** in the simplex network:
-a cycle in which A and B swap roles under the same or related modulator C, and in
-which the return is displaced from the origin.
+An aporia is not a special entity. It is a **role rotation**: a cycle where A
+and B swap roles under the same or related modulator, and the return is displaced
+from the origin.
 
 The Euthyphro:
 ```
@@ -84,87 +69,107 @@ Simplex 1: (piety → gods-love    [C: definition-seeking])
 Simplex 2: (gods-love → piety    [C: definition-seeking])
 ```
 
-Same terms, same modulator, A and B swapped. The cycle appears to close but does not:
-the `piety` at the end of the traversal is not the same as at the start — its potential
-has been displaced. The loop reveals non-closure *during traversal*, not in advance.
+Non-closure is revealed during traversal, not pre-computed. Displacement > 0
+after completing the cycle is the necessary condition for germiness.
 
-**Necessary condition for germiness**: displacement > 0 after completing the cycle.
-This is revealed by the going, not pre-computed.
+### 2.4 The germ and the operative zero
 
-### 2.4 The Germ
+A **germ** is a detected or analyst-supplied role rotation used to initiate a
+passage. It is a process — a traversal operator — not a static structure.
+Externality is preserved in the analyst's act of selection.
 
-A germ is a detected or analyst-supplied role rotation (aporia) used to initiate
-crystallization. It is modeled as a **process** — a traversal operator — not as a
-static structure.
+Every genuine germ has an **operative zero**: the virtual fixed point the cycle
+approaches asymptotically but cannot occupy because every return has already
+missed it. Zero as non-closure, not emptiness.
 
-The germ is only actualized when enacted on a specific network. The analyst's act
-of selection or supply is what is "outside" in Simondon's sense: the externality
-is preserved in the recognition, not in the structure.
+```
+Z such that φ_C(Z) = Z    [the fixed point of the potential composition around C]
+```
 
-### 2.5 Crystallization
+Three regimes for Z:
+- **Virtual** (diverging potentials): strong germ; constitutive non-closure
+- **Real, distant** (converging): weak germ; the passage will settle
+- **Oscillatory** (alternating): the germ is a pendulum around its zero
 
-From the germ, crystallization extends the SimplexNetwork:
+### 2.5 The passage
 
-1. Inject germ into network at the selected RoleRotation site
-2. Each step: actualize new simplexes adjacent to the germ's traversal
-3. Classify each propagation event as Deductive / Inductive / Transductive
-4. Record the CrystallizationStep: projection state, mode distribution, entropy delta
-5. Derive PotentialField from updated network
-6. Detect: convergence / divergence / threshold crossing / regime change
-7. Iterate until halt condition
+A passage is a run of the engine from germ injection through the corpus field.
+Each step: actualize new simplexes, classify propagation mode, record remainder.
 
-**Propagation modes** (never pure — the distribution is the signal):
-- **Deductive**: necessary entailment from existing simplexes; conservative; no new
-  information; tends toward closure
-- **Inductive**: pattern following across multiple simplexes; generalizing; mild
-  compression; risks premature closure into a "law"
-- **Transductive**: structural form propagates across a domain boundary; lateral;
-  genuinely new information; risks instability without inductive support
+**Propagation modes** (never pure — the distribution across steps is the signal):
 
-A shift in mode distribution across steps is itself a signal:
-- Predominantly deductive → converging; approaching stability
-- Predominantly transductive → generative; domain-jumping; regime change building
-- Abrupt shift deductive → transductive: bifurcation event
+| Mode | How the step proceeds | Typical entropy effect |
+|---|---|---|
+| Deductive | Necessary entailment from existing simplexes | Decreasing |
+| Inductive | Pattern following across multiple simplexes | Stable |
+| Transductive | Structural form crosses a domain boundary | Increasing |
 
-### 2.6 Thermodynamic Measures
+### 2.6 The eddy
 
-All derived from the PotentialField and PropagationEvents:
+An eddy is the session-level output of a passage: the local coherence the flow
+produced. It corresponds to the `eddy_ledger` entry format.
+
+**Interference character** (retrospective, eddy-level):
+
+| Character | What it means |
+|---|---|
+| Constructive | Fields reinforce; shared patterns amplify |
+| Destructive | Fields cancel or critique; incompatibilities surface |
+| Transverse | Fields cross at an angle; unexpected rotations emerge |
+| Resonant | Fields amplify a shared structural pattern across domains |
+
+Transverse is the most generative: neither reinforcement nor cancellation, but
+vocabulary that neither field contained alone.
+
+An eddy also records:
+- **Vocabulary rotations**: terms that changed role across the passage
+- **Remainder**: what the passage could not resolve — re-enters the flow
+- **Operative zero**: the virtual fixed point of the germ's cycle
+- **Structural pattern**: if a known germ template matched (analyst-retrospective)
+
+### 2.7 Thermodynamic measures
+
+All derived from the PotentialField (itself derived from the SimplexNetwork):
 
 | Measure | Meaning |
 |---|---|
-| S — field entropy | Distribution of φ across the network |
-| ΔS — entropy delta per step | Convergence (ΔS < 0) vs. divergence (ΔS > 0) |
-| F = U − TS — free energy | Driving force of crystallization |
-| I(A;B\|C) — conditional mutual information | Information shared between A and B given C |
-| KL(P‖Q) — projection divergence | Distance between two crystallization states |
-| λ — local Lyapunov exponent | Sensitivity; onset of chaos / regime change |
-
-### 2.7 Historical Context as Now-Representation
-
-When relating texts separated in time (e.g. MMK and Candrakīrti's Prasannapadā),
-temporal/institutional distance is modeled as C-term metadata on cross-domain simplexes.
-This is our now-representation of distance — a modulating construction we supply as
-analysts, acknowledged as such, not a direct model of the past.
-
-```
-Simplex: (MMK → Prasannapadā [C: HistoricalContext{
-    temporal_distance: 700yrs,
-    institutional_factors: ["Prasangika formation", "Sanskrit→Tibetan translation"],
-    medium_noise: 0.3,
-    analyst_confidence: 0.6
-}])
-```
-
-Transductive relations across projections (e.g. what Candrakīrti's crystallization
-owes to MMK's structure) are detected by comparing projections, not annotated manually.
+| S — entropy | Distribution of intensities across the network |
+| ΔS per step | Convergence (ΔS < 0) vs. divergence (ΔS > 0) |
+| F = U − TS | Free energy; driving force of the passage |
+| I(A;B\|C) | Conditional mutual information |
+| KL(P‖Q) | Divergence between two passage states |
+| λ — Lyapunov | Onset of chaos / regime change |
 
 ---
 
-## 3. Domain Model
+## 3. CorpusProvider
 
-A **Domain** is a unit of meaning at a given scale of extension. Domains are
-hierarchically nested and user-defined. The system ships with defaults but all levels
-are replaceable.
+The engine's only entry point to content. Decoupled from engine logic.
+A library of JSON entries, a directory of text files, a URL set — all are providers.
+
+```python
+class CorpusProvider(ABC):
+    @property
+    @abstractmethod
+    def name(self) -> str: ...
+
+    @abstractmethod
+    def domains(self, level: str = "work") -> Iterator[Domain]: ...
+
+    def vocabulary(self) -> dict[str, list[str]]:
+        """Optional: pre-existing topic map. {} = build from text."""
+        return {}
+```
+
+Implementations: `DirectoryProvider` (Phase 1). `BiblioProvider` (Phase 2,
+reading from the Bibliography's JSON entries + topic_map — kept decoupled).
+
+---
+
+## 4. Domain Model
+
+A **Domain** is a unit of meaning at a scale of extension. Domains are
+hierarchically nested and user-defined:
 
 ```
 Default:    sentence ⊂ thought ⊂ argument ⊂ work ⊂ corpus
@@ -172,330 +177,265 @@ Financial:  line_item ⊂ section ⊂ statement ⊂ annual_report ⊂ corpus
 Poetic:     line ⊂ stanza ⊂ poem ⊂ collection
 ```
 
-A **DomainDefinition** specifies a named level and how to segment a parent domain
-into instances of this level. Segmentation is theoretically motivated — NLP sentence
-boundary detection is the default first implementation, with the explicit commitment
-that it privileges surface syntactic structure.
-
-A **Medium** is the carrier of a Domain. It is separate from the domain it carries
-and contributes noise and velocity to the modulation. A handwritten manuscript and
-a PDF of the same text are not equivalent. Medium is relevant but not primary.
+A **Medium** carries a Domain: plaintext, PDF, epub. The medium contributes
+noise and extraction cost — materially relevant, not primary.
 
 ---
 
-## 4. Data Schemas
+## 5. Data Schemas
 
 ```python
 # core/term.py
-@dataclass
+@dataclass(frozen=True)
 class Term:
     id: str
     label: str
-    # no potential stored on Term; φ is derived from the network
 
 # core/simplex.py
 class Role(Enum):
-    SOURCE    = "A"
-    TARGET    = "B"
-    MODULATOR = "C"
+    SOURCE = "A"; TARGET = "B"; MODULATOR = "C"
 
 @dataclass
 class HistoricalContext:
-    """
-    Our now-representation of distance between domains.
-    Not an objective property of the past — a modulating construction.
-    """
     temporal_distance: Optional[float]
-    spatial_distance: Optional[float]
     institutional_factors: list[str]
     medium_noise: float
-    analyst_confidence: float
+    analyst_confidence: float  # explicit: this is our construction
 
 @dataclass
 class Simplex:
     id: str
-    source: Term
-    target: Term
-    modulator: Term
-    intensity: float
-    asymmetry: float        # [-1, 1]
-    gain: float
-    historical_context: Optional[HistoricalContext]  # None for synchronic
-
-# core/network.py
-@dataclass
-class SimplexNetwork:
-    simplexes: dict[str, Simplex]
-    # adjacency is derived: simplexes are adjacent if they share a term
-    # roles of shared terms may differ across adjacent simplexes (role mobility)
-
-# core/field.py
-@dataclass
-class PotentialField:
-    """Derived from SimplexNetwork. Not prior to it."""
-    potentials: dict[str, float]   # term_id → φ
-
-# core/domain.py
-@dataclass
-class DomainDefinition:
-    name: str
-    level: int              # ordinal; higher = more extended
-    segmenter: str          # reference to a Segmenter implementation
-
-@dataclass
-class Medium:
-    format: str             # "plaintext", "pdf", "epub", ...
-    velocity: float
-    noise_coefficient: float
-    extraction_cost: float
-
-@dataclass
-class Domain:
-    id: str
-    definition: DomainDefinition
-    parent: Optional[str]   # Domain id
-    children: list[str]     # Domain ids
-    content: str
-    medium: Medium
+    source: Term; target: Term; modulator: Term
+    intensity: float; asymmetry: float; gain: float
+    historical_context: Optional[HistoricalContext] = None
 
 # core/germ.py
 @dataclass
 class RoleRotation:
-    """A cycle where A and B swap roles under same/related C."""
-    cycle: list[str]            # ordered Simplex ids
+    cycle: list[str]           # ordered Simplex ids
     modulator_stable: bool
-    displacement: float         # revealed during traversal; > 0 for true aporia
-
-class GermSource(Enum):
-    ANALYST_SUPPLIED = "analyst"
-    DETECTED         = "detected"
+    displacement: float        # revealed during traversal; pre-estimated at detection
+    source_simplex_ids: list[str]
 
 @dataclass
 class Germ:
-    id: str
-    label: str
-    source: GermSource
+    id: str; label: str
+    source: GermSource         # ANALYST_SUPPLIED | DETECTED
     pattern: RoleRotation
 
-# crystallize/state.py
-class PropagationMode(Enum):
-    DEDUCTIVE    = "deductive"
-    INDUCTIVE    = "inductive"
-    TRANSDUCTIVE = "transductive"
+# core/operative_zero.py
+@dataclass
+class OperativeZero:
+    value: Optional[float]     # None when virtual
+    is_virtual: bool
+    approach_direction: float  # +1 diverging; -1 converging; 0 oscillating
+    distance_from_current: float
 
+# core/propagation.py
+class PropagationMode(Enum):
+    DEDUCTIVE = "deductive"; INDUCTIVE = "inductive"; TRANSDUCTIVE = "transductive"
+
+class InterferenceCharacter(Enum):
+    CONSTRUCTIVE = "constructive"; DESTRUCTIVE = "destructive"
+    TRANSVERSE = "transverse";     RESONANT = "resonant"
+
+# passage/state.py
 @dataclass
 class PropagationEvent:
     mode: PropagationMode
     source_simplex_ids: list[str]
     new_simplex: Simplex
     confidence: float
-    domain_jump: Optional[tuple[str, str]]  # Domain ids; non-None only for transductive
-    information_gain: float                  # KL(posterior ‖ prior)
+    domain_jump: Optional[tuple[str, str]] = None
+    information_gain: float = 0.0
 
 @dataclass
-class CrystallizationStep:
+class PassageStep:
     index: int
-    network: SimplexNetwork
-    field: PotentialField           # derived from network at this step
+    network: SimplexNetwork; field: PotentialField
     propagation_events: list[PropagationEvent]
-    mode_distribution: dict[str, float]   # PropagationMode.value → proportion
-    entropy: float
-    entropy_delta: float
-    free_energy: float
-    new_role_rotations: list[RoleRotation]  # new aporiae that emerged this step
+    mode_distribution: dict[str, float]
+    entropy: float; entropy_delta: float; free_energy: float
+    new_role_rotations: list[RoleRotation]
     regime_change: bool
+
+# passage/eddy.py
+@dataclass
+class VocabRotation:       # term changed role across the passage
+    term: Term
+    role_from: Role; field_from: str
+    role_to: Role;   field_to: str
+
+@dataclass
+class RemainderEntry:      # what a step left behind
+    term_id: str; amount: float; source_step: int; disposition: str
+
+@dataclass
+class Eddy:
+    id: str; scale: str; source: str
+    fields_in_rotation: list[str]
+    vocabulary_rotations: list[VocabRotation]
+    interference_character: Optional[InterferenceCharacter]
+    what_appeared: str
+    remainder: list[RemainderEntry]
+    operative_zero: Optional[OperativeZero]
+    steps: list[PassageStep]
+    # analyst annotation fields (empty from engine):
+    dominant_field: Optional[str]; feeds_into: list[str]
+    structural_pattern: Optional[PatternMatch]; annotations: str
 ```
 
 ---
 
-## 5. Service Interfaces
+## 6. Service Interfaces
 
 ```python
-class DomainService:
-    def register_definition(self, defn: DomainDefinition) -> None: ...
-    def ingest(self, content: str, medium: Medium,
-               definition: str) -> Domain: ...
-    def build_hierarchy(self, root: Domain) -> list[Domain]: ...
-
-class ExtractionService:
-    """Parses a Domain into a SimplexNetwork using a named extractor."""
-    def extract(self, domain: Domain, extractor: str = "nlp") -> SimplexNetwork: ...
-    def commitments(self, extractor: str) -> list[dict]: ...
+class PassageService:
+    def new_session(self, provider: CorpusProvider, germ: Germ) -> str: ...
+    def run(self, session_id: str, max_steps: int, halt_on_stable: bool) -> Eddy: ...
+    def get_eddy(self, session_id: str) -> Eddy | None: ...
 
 class GermService:
-    def detect(self, network: SimplexNetwork,
-               min_displacement: float = 0.1) -> list[Germ]: ...
-    def supply(self, label: str, cycle: list[str],
-               network: SimplexNetwork) -> Germ: ...
-
-class CrystallizeService:
-    def new_session(self, network: SimplexNetwork, germ: Germ) -> str: ...
-    def step(self, session_id: str) -> CrystallizationStep: ...
-    def run(self, session_id: str, max_steps: int,
-            halt_on_stable: bool = True) -> list[CrystallizationStep]: ...
-
-class AnalyzeService:
-    def differential_map(self, steps: list[CrystallizationStep]) -> dict: ...
-    def compare_projections(self, network_a: SimplexNetwork,
-                            network_b: SimplexNetwork) -> dict: ...
-    def detect_phases(self, steps: list[CrystallizationStep]) -> list[dict]: ...
-    def commitment_trace(self, steps: list[CrystallizationStep],
-                         commitments: list[dict]) -> dict: ...
-    def report(self, steps: list[CrystallizationStep],
-               format: str = "json") -> str: ...
+    def detect(self, network: SimplexNetwork) -> list[Germ]: ...
+    def supply(self, label: str, simplex_ids: list[str],
+               network: SimplexNetwork, notes: str) -> Germ: ...
 ```
 
 ---
 
-## 6. CLI Commands
+## 7. CLI Commands
 
 ```
-ri ingest <source>          --medium plaintext|pdf|epub
-                            --domain sentence|thought|argument|work|corpus|<custom>
-                            [--out network.json]
+ri corpus scan <path>   [--glob "**/*.txt"] [--level work] [--out corpus.json]
 
-ri germ detect <network>    [--min-displacement 0.1]
-                            [--out germs.json]
+ri germ detect <corpus.json>  [--min-displacement 0.01]
+ri germ supply <corpus.json>  --label "Euthyphro aporia" --cycle <id> [<id> ...]
 
-ri germ supply <network>    --label "Euthyphro aporia"
-                            --cycle <simplex_id> [<simplex_id> ...]
-                            [--out germ.json]
+ri passage <corpus.json>  --germ <germ.json>  [--steps 50]  [--out eddy.json]
 
-ri crystallize <network>    --germ <germ.json>
-                            [--steps 100]
-                            [--halt-stable]
-                            [--out session.json]
-
-ri analyze <session>        [--map]
-                            [--phases]
-                            [--compare <other_network.json>]
-                            [--commitments <extractor>]
-                            [--report json|text]
-
+ri eddy show <eddy.json>
 ri session list
-ri session show <id>
 ```
 
 ---
 
-## 7. Module Structure
+## 8. Module Structure
 
 ```
 research-indexer/
-│
-├── core/                   # Pure domain model — no I/O, no frameworks
-│   ├── term.py
+├── core/                   # Pure domain model — no I/O
+│   ├── term.py             # Term
 │   ├── simplex.py          # Simplex, Role, HistoricalContext
 │   ├── network.py          # SimplexNetwork
-│   ├── field.py            # PotentialField (derived)
-│   ├── domain.py           # Domain, DomainDefinition, Medium
+│   ├── field.py            # PotentialField (derived from network)
+│   ├── domain.py           # Domain, DomainDefinition, Medium, DomainRegistry
 │   ├── germ.py             # Germ, RoleRotation, GermSource
-│   └── thermodynamics.py   # S, F, KL, Lyapunov, mutual information
+│   ├── propagation.py      # PropagationMode, InterferenceCharacter
+│   ├── operative_zero.py   # OperativeZero
+│   └── thermodynamics.py   # S, F, KL, Lyapunov, I(A;B|C)
+│
+├── corpus/                 # CorpusProvider implementations
+│   ├── base.py             # CorpusProvider ABC
+│   └── directory.py        # DirectoryProvider (text + PDF files)
 │
 ├── extract/                # Text → SimplexNetwork
 │   ├── base.py             # SimplexExtractor ABC + TheoreticalCommitment
 │   └── nlp.py              # NLPExtractor (subject/predicate/frame → A/B/C)
 │
-├── crystallize/            # Individuation engine
-│   ├── engine.py           # CrystallizationEngine
-│   ├── propagate.py        # Deductive / Inductive / Transductive propagators
+├── passage/                # The passage engine
+│   ├── state.py            # PassageStep, PropagationEvent
+│   ├── eddy.py             # Eddy, VocabRotation, RemainderEntry, PatternMatch
 │   ├── germ_detector.py    # GermDetector — finds RoleRotations
-│   └── state.py            # CrystallizationStep, PropagationEvent, PropagationMode
+│   └── engine.py           # PassageEngine
 │
-├── analyze/                # Post-crystallization analysis
+├── analyze/                # Post-passage analysis (Phase 3)
 │   ├── differential.py     # Convergence/divergence maps
 │   ├── phase.py            # Phase transition detection
 │   ├── compare.py          # Projection comparison (transduction detection)
-│   ├── commitment.py       # Commitment trace — attribution of extractor biases
-│   └── report.py           # Structured output
+│   └── commitment.py       # Commitment trace
 │
-├── services/               # SOA layer — one service class per domain
-│   ├── domain_service.py
-│   ├── extraction_service.py
+├── services/               # SOA layer
+│   ├── passage_service.py
 │   ├── germ_service.py
-│   ├── crystallize_service.py
 │   └── analyze_service.py
 │
-├── ui/
-│   └── cli/
-│       └── main.py         # Thin wrapper over services; no business logic
+├── ui/cli/main.py          # Thin CLI wrapper
 │
 └── tests/
-    ├── core/
-    ├── extract/
-    ├── crystallize/
-    └── analyze/
+    ├── core/               # test_simplex.py, test_eddy.py
+    └── passage/
 ```
 
 ---
 
-## 8. Theoretical Commitments — NLPExtractor
-
-The default extractor makes the following commitments, machine-readable to the system:
+## 9. Extractor Commitments — NLPExtractor
 
 | Commitment | Privileged | Suppressed | Propagation bias |
 |---|---|---|---|
-| intensity ∝ syntactic salience | Surface grammatical role | Rhetorical / prosodic structure | Inductive |
-| subject → A | Grammatical agency | Topical vs. grammatical subject distinction | Deductive |
-| main predicate/object → B | Predicative content | Performative / illocutionary force | Deductive |
-| subordinate clause / frame → C | Sentential context | Extra-sentential modulation | Inductive |
+| intensity ∝ TF-IDF | Reproducibility | Singularity / rhetorical weight | Inductive |
+| subject → SOURCE | Grammatical agency | Topical vs. grammatical subject | Deductive |
+| predicate/object → TARGET | Propositional content | Illocutionary force | Deductive |
+| frame → MODULATOR | Sentential context | Extra-sentential modulation | Inductive |
 
-These commitments are tracked through crystallization by the `commitment_trace` analysis.
-Any region of convergence or divergence can be attributed — partially or wholly — to
-these commitments, allowing the analyst to distinguish field-genuine results from
+These commitments are machine-readable (`TheoreticalCommitment` objects) and
+tracked by `analyze/commitment.py` to distinguish field-genuine results from
 extractor artifacts.
 
 ---
 
-## 9. Roadmap
+## 10. Design Constraints
 
-**Phase 1 — Core domain + skeleton** *(start here)*
-- `core/` fully implemented with tests
-- `extract/nlp.py` with NLPExtractor (spaCy, basic subject/predicate/frame)
-- Service stubs
-- CLI skeleton
+1. **The simplex is the primitive.** No component may claim to access or
+   represent the pre-individual field as such.
 
-**Phase 2 — Crystallization engine**
-- GermDetector (RoleRotation detection in SimplexNetwork)
-- CrystallizationEngine with all three propagation modes
-- Thermodynamic measures operational
+2. **Decoupled corpus.** The engine takes a `CorpusProvider`; it knows nothing
+   about the source format. A library, a directory, a URL set — all are providers.
 
-**Phase 3 — Analysis**
-- Differential maps
-- Projection comparison (transduction detection)
-- Phase transition detection
-- Commitment trace
-- Report generation
+3. **Strict separation of concerns.** No business logic in CLI. No I/O in `core/`.
+   Services mediate between domain and UI.
+
+4. **SOA from the start.** Every capability is callable as a service.
+
+5. **Extractor commitments are first-class.** Every `SimplexExtractor` declares
+   its theoretical commitments in machine-readable form.
+
+6. **Historical context is explicit.** Temporal/institutional distance is
+   analyst-supplied, flagged as a now-representation, with confidence value.
+
+7. **Mode distribution is a primary finding.** The Ded/Ind/Trans proportion
+   across steps is itself an output, not a diagnostic.
+
+8. **No metaphor sovereignty.** Metaphors are operators. The engine discovers
+   its regime; it does not pre-commit to crystallising or oscillating.
+
+---
+
+## 11. Roadmap
+
+**Phase 1 — Core + passage engine** *(current)*
+- `core/` complete with tests
+- `DirectoryProvider`
+- `NLPExtractor` (spaCy)
+- `PassageEngine` with Ded/Ind/Trans propagation
+- `GermDetector`, `OperativeZero`
+- `Eddy` output with ledger serialization
+- CLI: corpus scan / germ / passage / eddy show
+
+**Phase 2 — Analysis**
+- `analyze/differential.py` — convergence/divergence maps
+- `analyze/compare.py` — projection comparison (transduction detection)
+- `analyze/phase.py` — phase transition detection
+- `analyze/commitment.py` — commitment trace
+- `BiblioProvider` — reads Bibliography JSON entries + topic_map
+
+**Phase 3 — Pattern library + fold**
+- `PatternMatcher` — detects known germ templates in new passages
+- `Fold` — two-network interference (question-as-projection meets corpus)
+- Parameter discovery (probe text dynamics; don't pre-set engine regime)
 
 **Phase 4 — Additional extractors**
-- ArgumentExtractor (argument-level simplexes)
-- CorpusExtractor (multi-work, cross-domain)
-- Structured data extractor (financial statements)
+- `ArgumentExtractor`, `CorpusExtractor`, `StructuredDataExtractor`
 
 **Phase 5 — Service extraction**
 - Extract services to network endpoints (gRPC or lightweight HTTP)
 - CLI callers unchanged
-
----
-
-## 10. Key Design Constraints
-
-1. **The simplex is the primitive.** No system component may claim to access or
-   represent the pre-individual field as such.
-
-2. **Strict separation of concerns.** No business logic in the CLI. No I/O in `core/`.
-   Services mediate between domain and UI.
-
-3. **SOA from the start.** Every capability is callable as a service. The CLI is one
-   consumer; future UIs (web, notebook) are equally valid.
-
-4. **Extractor commitments are first-class.** Every SimplexExtractor declares its
-   theoretical commitments in machine-readable form. The analysis layer uses these.
-
-5. **Historical context is explicit.** When temporal/institutional distance modulates
-   a cross-domain simplex, that context is supplied by the analyst and flagged as a
-   now-representation with an explicit confidence value.
-
-6. **Mode distribution is the signal.** The Deductive/Inductive/Transductive proportion
-   across crystallization steps is itself a primary output — not a diagnostic but a
-   finding.

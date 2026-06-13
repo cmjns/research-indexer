@@ -14,7 +14,7 @@ from enum import Enum
 
 from core.domain import Domain
 from core.network import SimplexNetwork
-from crystallize.state import PropagationMode
+from core.propagation import PropagationMode
 
 
 @dataclass

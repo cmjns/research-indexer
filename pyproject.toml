@@ -18,6 +18,15 @@ dev = [
     "pytest-cov",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov",
+]
+pdf = [
+    "pdfplumber>=0.10",
+]
+
 [project.scripts]
 ri = "ui.cli.main:main"
 
