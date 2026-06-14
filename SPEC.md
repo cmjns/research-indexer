@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.5
+> Version: 0.6
 > Status: Working draft
 
 ---
@@ -314,6 +314,102 @@ All derived from the PotentialField (itself derived from the SimplexNetwork):
 | KL(P‖Q) | Divergence between two passage states |
 | λ — Lyapunov | Onset of chaos / regime change |
 
+### 2.11 The two levels of choice
+
+The walk-step — which simplex to enter next — is the place a subject is required
+to stand (it cannot be made an algorithm without abolishing the chooser; full
+specification = pure deduction = the sense pole, §2.12). But "choice" here covers
+two different acts at two levels, and only one is the analyst's:
+
+1. **Navigation** — which turn at each junction. This *can* be made by the
+   engine, by adopting a subjectivity (§2.12). It is the walk that makes the map.
+2. **Strategy** — what to do next: where to push the world toward a *desired
+   future state*. This the engine **cannot** make. It is the analyst's,
+   irreducibly, because it supplies a telos the map does not contain.
+
+The system performs level 1 and delivers a map (§2.13). The analyst performs
+level 2 on that map (§2.14).
+
+### 2.12 Subjectivity: how the walker turns
+
+Rather than solve "how to be a choosing subject," the system lets the live C
+**wear** one. A **subjectivity-plan** is a borrowed subject the walker picks up
+the way it picks up a c-term: you do not generate the turning from nothing — you
+turn *as Russell*, *as Waite*. The persona does the turning; the analyst chose the
+persona (and may switch).
+
+Every plan is **structured randomness** — a constrained draw plus an
+interpretation of the draw into a step — and plans vary in two dimensions:
+
+- **structure : randomness ratio** — the dial of §2.7. All structure, no
+  randomness = pure deduction = the sense pole (bondage). All randomness, no
+  structure = the coin flip = the nonsense pole (dissolution). The oracle is the
+  productive middle.
+- **steering faculty** — *what* does the turning: logic, affect, symbol, chance.
+
+Named plans (illustrative, pluggable):
+
+| Plan | faculty | structure:randomness |
+|---|---|---|
+| **Russell** | logic (deduction) | ≈ all structure (sense pole) |
+| **Debord** | chance (the dérive, coin flip) | ≈ all randomness (nonsense pole) |
+| **Sacks** | affect (resonance; the symptom as guide; drawn by what moves) | structured by feeling |
+| **Vintagia** | symbol (I-Ching) | structured randomness |
+| **Waite** | symbol (tarot) | structured randomness |
+
+Auto mode *is* structured randomness: the engine consults an oracle — a
+constrained random draw over available terms (trace + source) into positions,
+then an interpreter reads the spread into the next step. **The code can take a
+tarot reading.** Manual mode is the same machinery with the analyst as
+interpreter. Either way the choice is *thrown and read*, never deduced — the
+randomness supplies the externality (Serres's noise, the clinamen) a deducing
+engine structurally lacks.
+
+> **Caution (constraint #9, relocated to the interpreter).** The reading is where
+> closure sneaks back. An interpreter — especially a generative one — tends to
+> over-cohere, resolving the spread into a tidy story, flying toward the sense-sun,
+> collapsing the spiral into a circle. The interpreter must be tuned to *preserve
+> displacement*: read toward discontinuity, hold the gap, resist making it all make
+> sense.
+
+### 2.13 The deliverable is a map
+
+The system's output is a **map** — not a decision. Derivative and moving, a
+projection over a topology it never sees directly. Two layers:
+
+- **terrain** — neighbourhoods, their *boundaries* (not borders: permeable,
+  coupling-strength, never fixed lines), the orbit of adjacent neighbourhoods, the
+  structure of the whole.
+- **affordances** — the leverage points: what is near threshold, where
+  metastabilities move on different timescales, where interference amplifies.
+
+The map's **shape depends on the subjectivity; its constraints come from the
+world.** Russell's map and Waite's map of the same corpus differ — different walks
+notice different things — but neither can walk a street that is not there. This is
+the original brief made exact: subjectivity shapes the projection, the corpus
+bounds it, the pre-individual topology itself is never seen. (A single Eddy, §2.9,
+is one local coherence; the Map is the survey, with eddies as features on it.)
+
+### 2.14 Reconnaissance and command: the system / analyst boundary
+
+The division of labour holds across every use case: **the system is
+reconnaissance; the analyst is command.** The system maps a market's
+metastabilities and thresholds; the analyst decides the trade. It maps the MMK's
+interference and amplification; the scholar decides the reading to push. The
+system surfaces leverage *neutrally*; the analyst supplies the telos — the desired
+future — and owns the push.
+
+This is also where the contemplative and the engaged modes divide. The **map** is
+contemplative: drift, reconnaissance, the lay of the land taken without demand —
+non-clinging. The **push** is engaged: telos, intervention, and therefore clinging
+— a desired future demands closure, skews toward the sense-sun, generates
+remainder. The mature analyst toggles: map without grasping, then push *knowing
+the push will not close* — act toward F, but hold F as a tight ellipse, not a
+circle. The machine does the non-attached mapping tirelessly; the human owns the
+attached, responsible push. **Ethics lives where the telos does — with the
+analyst, never the map.** The strategic push is therefore explicitly out of the
+system's scope (§10, constraint #10): the system informs; it does not act.
+
 ---
 
 ## 3. CorpusProvider
@@ -536,6 +632,38 @@ class Traversal:
     walker: Walker
     steps: list[PassageStep]            # each step also carries StepTopology
     operative_zero: OperativeZero       # derived from rotation_log
+
+# subjectivity/plan.py  (target) — how the walker turns (§2.12)
+@dataclass
+class SubjectivityPlan:
+    """A borrowed subject the live C wears. Supersedes the bare NavigationStrategy:
+    a persona = a structured-randomness draw + an interpretation of the draw into
+    the next step. Auto mode runs the plan (the code reads tarot); manual mode uses
+    the analyst as interpreter."""
+    name: str               # "Russell" | "Debord" | "Sacks" | "Vintagia" | "Waite" | ...
+    faculty: str            # "logic" | "affect" | "symbol" | "chance"
+    structure_ratio: float  # 0.0 = pure randomness (nonsense) .. 1.0 = pure structure (sense);
+                            #   this is the dial (§2.7) as a standing setting
+    def draw(self, walker: "Walker", source) -> list[Term]: ...   # the constrained random spread
+    def read(self, spread: list[Term], walker: "Walker") -> str: ...  # spread -> next Simplex id
+    # read() must preserve displacement, not resolve it (constraint #9 / §2.12 caution)
+
+# map/map.py  (target) — the deliverable (§2.13)
+@dataclass
+class Map:
+    """Reconnaissance, not a decision. Shape depends on the subjectivity; bounds
+    come from the corpus. A survey, with eddies as features on it."""
+    subjectivity: str                       # which plan walked it
+    terrain: dict                           # neighbourhoods, boundaries (not borders), orbits
+    affordances: list["Affordance"]         # leverage points
+    eddies: list[Eddy]                      # local coherences found on the survey
+
+@dataclass
+class Affordance:
+    """A leverage point the analyst may choose to push (the push is NOT the system's)."""
+    site: list[str]         # term/simplex ids
+    kind: str               # "near_threshold" | "multiscale_metastability" | "interference_amplification"
+    measure: float          # strength (free energy near critical, λ, |z|-to-threshold, ...)
 ```
 
 ---
@@ -552,6 +680,20 @@ class GermService:
     def detect(self, network: SimplexNetwork) -> list[Germ]: ...
     def supply(self, label: str, simplex_ids: list[str],
                network: SimplexNetwork, notes: str) -> Germ: ...
+
+# target (§2.12–2.14)
+class SubjectivityService:
+    """Furnishes the persona that does the turning. Names are pluggable."""
+    def plan(self, name: str) -> SubjectivityPlan: ...
+    def list_plans(self) -> list[str]: ...
+
+class MapService:
+    """Runs walks under a subjectivity and assembles the map (§2.13).
+    Produces terrain + affordances; it does NOT decide the push (§2.14)."""
+    def survey(self, source, seed: tuple,            # seed = (A, B, modulation)
+               subjectivity: str, max_steps: int) -> Map: ...
+    # NB: there is no `decide()` / `push()` — the strategic choice is the analyst's,
+    # out of scope by constraint #10.
 ```
 
 ---
@@ -607,10 +749,19 @@ research-indexer/
 │   ├── compare.py          # Projection comparison (transduction detection)
 │   └── commitment.py       # Commitment trace
 │
+├── subjectivity/           # (target) how the walker turns — §2.12
+│   ├── plan.py             # SubjectivityPlan (draw + read)
+│   └── plans/              # Russell, Debord, Sacks, Vintagia, Waite, ...
+│
+├── map/                    # (target) the deliverable — §2.13
+│   └── map.py              # Map, Affordance
+│
 ├── services/               # SOA layer
 │   ├── passage_service.py
 │   ├── germ_service.py
-│   └── analyze_service.py
+│   ├── analyze_service.py
+│   ├── subjectivity_service.py   # (target)
+│   └── map_service.py            # (target) survey(); no decide()/push()
 │
 ├── ui/cli/main.py          # Thin CLI wrapper
 │
@@ -684,6 +835,15 @@ extractor artifacts.
    finished — including this rule: "no circle closes," made into a tidy law,
    closes it.
 
+10. **The system maps; the analyst pushes.** Two levels of choice (§2.11):
+    *navigation* (which turn — the engine makes this, by wearing a subjectivity,
+    §2.12) and *strategy* (where to push toward a desired future — the analyst's,
+    irreducibly). The system delivers a map (§2.13); it never supplies the telos
+    and never enacts the push. `MapService` has no `decide()`/`push()`. Ethics
+    lives where the telos does — with the analyst. The walk-step is furnished, not
+    automated away: the engine offers personas and shows the chooser where they
+    are on the axis; it does not make the strategic choice.
+
 ---
 
 ## 11. Roadmap
@@ -714,7 +874,12 @@ extractor artifacts.
 - `analyze/commitment.py` — commitment trace
 - `BiblioProvider` — reads Bibliography JSON entries + topic_map
 
-**Phase 3 — Pattern library + fold**
+**Phase 3 — Subjectivity, map, pattern library, fold**
+- **`SubjectivityService`** (§2.12) — pluggable subjectivity-plans (Russell,
+  Debord, Sacks, Vintagia, Waite); each = structured-randomness draw + interpreter;
+  the dial is a standing `structure_ratio`. Auto mode = the code reads the oracle.
+- **`MapService` + `Map`** (§2.13) — survey under a subjectivity; terrain +
+  affordances (leverage points). No `decide()`/`push()` (constraint #10).
 - `PatternMatcher` — detects known germ templates in new passages
 - `Fold` — two-network interference (question-as-projection meets corpus)
 - Parameter discovery (probe text dynamics; don't pre-set engine regime)
