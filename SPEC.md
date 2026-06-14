@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.2
+> Version: 0.3
 > Status: Working draft
 
 ---
@@ -37,12 +37,11 @@ flow has passed often enough to sediment vocabulary. An eddy is a local coherenc
 in the flow, not a container of it. Every eddy forms in a flow that precedes it
 and continues past it.
 
-We do not model the pre-individual as such. We start already moving. The
-SimplexNetwork is the primitive — it is what we have when we begin.
+We do not model the pre-individual as such. We start already moving.
 
-### 2.2 The primitive: modulated 3-simplex
+### 2.2 The irreducible unit: modulated 3-simplex
 
-The irreducible unit is the asymmetric, modulated 3-simplex (Serres's triode):
+The irreducible *unit* is the asymmetric, modulated 3-simplex (Serres's triode):
 
 ```
 A ──[C]──► B
@@ -57,7 +56,47 @@ A ──[C]──► B
 A simplex carries: `intensity`, `asymmetry`, `gain`, and optionally
 `historical_context` (our now-representation of temporal/institutional distance).
 
-### 2.3 The aporia as role rotation
+The simplex is the smallest thing we can be *in*. It is not the central object
+of the system (§2.3). A and B are not atoms: each incorporates both continuity
+(they are the extremities of one differential gradient) and discontinuity (they
+are related, hence separable, entities). Whether a given A–B reads as continuous
+or discontinuous is something measured from inside, not given (§2.7).
+
+### 2.3 The traversal is the central object
+
+The central object is not the network of simplexes. It is the **traversal** — a
+walk from simplex to simplex. The network is only the trace the walk deposits.
+The system is a *walker that carries a position and records its own rotation*, not
+a viewer of a static structure.
+
+**The analyst occupies the C position, from inside.** To relate an A and a B *is
+to be their C*. We do not stand outside the network reading it; we are always in
+some simplex, modulating its A→B relation, and the only question before us is
+which adjacent simplex to enter next.
+
+This reframes Simondon's externality (the germ supplied "from outside"). The
+outside was never a god's-eye supplier. The outside is our freedom to choose the
+next simplex, exercised from within. The **germ** is where we start plus the
+direction we step — analyst-supplied or selected from detected candidates, but
+in either case enacted as a walk, not read off a structure.
+
+As we step, role mobility acts on the relation between our position and the
+terms: either the terms rotate around our held position, or we are ourselves
+re-roled (what was our act of relating becomes a term the next relating works
+on). Either way the walk accumulates a **relative rotation**. This is why a
+return is never identical — and it is what the traversal must measure. Three
+questions the walker must answer:
+
+1. **Are we approaching the start?** — by re-entering a simplex sharing terms
+   with the origin. We recognise a *neighbourhood*, never an identity: we come
+   back to a term in a different role than we left it.
+2. **How far is the near-pass from the start?** — the two-component displacement
+   (§2.5).
+3. **What path did we take?** — the ordered simplexes entered, the
+   continuity/discontinuity measured at each (§2.7), and the rotation
+   accumulated. That sequence *is* the eddy (§2.9).
+
+### 2.4 The aporia as role rotation
 
 An aporia is not a special entity. It is a **role rotation**: a cycle where A
 and B swap roles under the same or related modulator, and the return is displaced
@@ -69,29 +108,104 @@ Simplex 1: (piety → gods-love    [C: definition-seeking])
 Simplex 2: (gods-love → piety    [C: definition-seeking])
 ```
 
-Non-closure is revealed during traversal, not pre-computed. Displacement > 0
-after completing the cycle is the necessary condition for germiness.
+Here C is held stable (*definition-seeking*) while piety and gods-love swap
+SOURCE↔TARGET around it. Non-closure is revealed during traversal, not
+pre-computed.
 
-### 2.4 The germ and the operative zero
+### 2.5 Displacement, the spiral, and the operative zero
 
-A **germ** is a detected or analyst-supplied role rotation used to initiate a
-passage. It is a process — a traversal operator — not a static structure.
-Externality is preserved in the analyst's act of selection.
+When the walk returns near its origin, the gap between origin and near-pass is
+the **displacement**, and it has two components:
 
-Every genuine germ has an **operative zero**: the virtual fixed point the cycle
-approaches asymptotically but cannot occupy because every return has already
-missed it. Zero as non-closure, not emptiness.
+- **potential-displacement** — the change in φ (intensity) over the loop
+- **role-displacement** — how far the configuration rotated over the loop
 
-```
-Z such that φ_C(Z) = Z    [the fixed point of the potential composition around C]
-```
+The Euthyphro is the pure role-displacement case: same terms, same magnitudes,
+rotated roles — zero potential change, maximal role change. A scalar displacement
+cannot hold this; the rotation is the substance of it.
 
-Three regimes for Z:
-- **Virtual** (diverging potentials): strong germ; constitutive non-closure
-- **Real, distant** (converging): weak germ; the passage will settle
-- **Oscillatory** (alternating): the germ is a pendulum around its zero
+This yields the circle/spiral distinction:
 
-### 2.5 The passage
+- **Circle** — return to the same term in the *same* role. True closure;
+  displacement 0. A degenerate germ — no aporia.
+- **Spiral** — return to the same term in a *rotated* role. Genuine non-closure.
+  The **pitch of the spiral is the accumulated role-rotation per loop.**
+
+Every genuine germ traces a spiral, and the **operative zero** is the center the
+spiral winds around but never occupies — the asymptotic nonpoint that every
+return has already missed. Zero as non-closure, not emptiness.
+
+The conic family classifies germ trajectories by displacement-per-cycle (an
+eccentricity analog):
+
+| Conic | trajectory | regime |
+|---|---|---|
+| **Circle** (e=0) | closes exactly | degenerate; not aporetic |
+| **Ellipse** (0<e<1) | bounded recurrence, precesses; orbits a real center | oscillating — Z real, interior |
+| **Parabola** (e=1) | escapes exactly at the boundary | the separatrix; the threshold itself |
+| **Hyperbola** (e>1) | unbound; escapes the basin | diverging — Z virtual, →∞ |
+| **Spiral** (non-conic) | returns displaced; winds a center it never reaches | the genuine germ |
+
+A circle is the degenerate spiral of zero pitch. "Return without closure,
+repetition without identity" is the spiral signature.
+
+### 2.6 The one quantity: remainder = spiral pitch = stability
+
+Three things we had been carrying separately are one quantity — **the relative
+role-rotation the configuration accumulates per loop**:
+
+- **Remainder** — what the passage could not resolve. It is the displacement
+  itself: the non-coincidence of near-return with origin. It is *succession by
+  rotation, not inheritance* — it does not copy a parent's traits with variation;
+  it applies a rotation. "Inherits the shape with a difference" because the
+  difference *is* the rotation operator. No biology, no lineage.
+- **Spiral pitch / operative-zero displacement** — the same per-loop rotation,
+  read geometrically.
+- **Stability as differential** — stability is not a property of a term. It is
+  the *rate at which near-returns drift*: `d(displacement)/d(loop)`. Tight orbit,
+  low rotation per loop → near-circle → stable (the vortex center). Each loop
+  carrying us further → opening spiral → escape. Perturb it and the center goes
+  off-center: the per-loop rotation changes, the orbit precesses or shears.
+  Legible only from inside, along the path — never off a static term.
+
+This is the time/space differential the model needs: one measured rotation,
+sampled at each near-return, whose magnitude is remainder and whose derivative is
+stability.
+
+### 2.7 Continuity, discontinuity, and the topological cut
+
+From inside a simplex, relating A and B, we can measure their **continuity** (how
+much they are extremities of one gradient — A flows into B) or their
+**discontinuity** (how much they are genuinely separate terms related across a
+break), or both. This local measurement is the microscale of the closed/open
+distinction:
+
+- **continuity** at a step = a **deformation** (A and B on one continuous figure)
+- **discontinuity** at a step = a **cut** (A and B across a topological break)
+
+Globally, whether the whole walk closes (circle) or opens (spiral) is the
+*integral* of these local choices. Continuity all the way → the path can close →
+circle. One genuine discontinuity → the cut that opens it → spiral.
+
+This sharpens regime change. Closed figures (circle, ellipse, square, amoeba) are
+homeomorphic — you deform one into another continuously, *variation within a
+type*, no threshold crossed. Opening a closed figure into a spiral is a **change
+of topological type** — a cut, a singularity (Morse theory is the formal
+apparatus). So two distinct events must not be conflated:
+
+- **deformation** — shape changes, topological type preserved. Within-regime
+  variation. *Not* a true bifurcation.
+- **topological cut** — closed ↔ open. A circle opening into a spiral (an apparent
+  closure revealing its non-closure), or a spiral closing into a circle (an
+  aporia captured/resolved). *This* is the genuine regime change.
+
+The closure detectable here does real interpretive work: a commentary that takes
+a high-displacement spiral germ and drives its displacement toward zero is
+*performing closure* on it — turning a spiral into a circle. Comparing two
+projections over the same germ (§Phase 2) can detect which keeps the spiral open
+and which closes it.
+
+### 2.8 The passage
 
 A passage is a run of the engine from germ injection through the corpus field.
 Each step: actualize new simplexes, classify propagation mode, record remainder.
@@ -104,10 +218,11 @@ Each step: actualize new simplexes, classify propagation mode, record remainder.
 | Inductive | Pattern following across multiple simplexes | Stable |
 | Transductive | Structural form crosses a domain boundary | Increasing |
 
-### 2.6 The eddy
+### 2.9 The eddy
 
 An eddy is the session-level output of a passage: the local coherence the flow
-produced. It corresponds to the `eddy_ledger` entry format.
+produced — equivalently, the trace the walk deposited. It corresponds to the
+`eddy_ledger` entry format.
 
 **Interference character** (retrospective, eddy-level):
 
@@ -122,12 +237,14 @@ Transverse is the most generative: neither reinforcement nor cancellation, but
 vocabulary that neither field contained alone.
 
 An eddy also records:
-- **Vocabulary rotations**: terms that changed role across the passage
-- **Remainder**: what the passage could not resolve — re-enters the flow
-- **Operative zero**: the virtual fixed point of the germ's cycle
+- **Vocabulary rotations**: terms that changed role across the passage (the
+  role-displacement, recorded term by term)
+- **Remainder**: what the passage could not resolve — re-enters the flow. The
+  accumulated per-loop rotation (§2.6)
+- **Operative zero**: the center the spiral winds around, with its conic regime
 - **Structural pattern**: if a known germ template matched (analyst-retrospective)
 
-### 2.7 Thermodynamic measures
+### 2.10 Thermodynamic measures
 
 All derived from the PotentialField (itself derived from the SimplexNetwork):
 
@@ -184,6 +301,12 @@ noise and extraction cost — materially relevant, not primary.
 
 ## 5. Data Schemas
 
+> The schemas below describe the **current implementation**, which still treats
+> `SimplexNetwork` as the object the engine queries from outside. The walker model
+> (§2.3) inverts this: the traversal becomes the central object and the network
+> its trace. The target objects that inversion requires are listed in §5.1,
+> marked *(target — not yet implemented)*. The walker refactor is Phase 2.
+
 ```python
 # core/term.py
 @dataclass(frozen=True)
@@ -230,6 +353,7 @@ class OperativeZero:
     is_virtual: bool
     approach_direction: float  # +1 diverging; -1 converging; 0 oscillating
     distance_from_current: float
+    regime: str                # conic label: circle|ellipse|parabola|hyperbola|spiral
 
 # core/propagation.py
 class PropagationMode(Enum):
@@ -257,7 +381,7 @@ class PassageStep:
     mode_distribution: dict[str, float]
     entropy: float; entropy_delta: float; free_energy: float
     new_role_rotations: list[RoleRotation]
-    regime_change: bool
+    # regime_change: bool   # to be split (see §5.1): deformation vs topological_cut
 
 # passage/eddy.py
 @dataclass
@@ -283,6 +407,44 @@ class Eddy:
     # analyst annotation fields (empty from engine):
     dominant_field: Optional[str]; feeds_into: list[str]
     structural_pattern: Optional[PatternMatch]; annotations: str
+```
+
+### 5.1 Target schemas (walker refactor, Phase 2 — not yet implemented)
+
+These objects make the traversal the central thing the engine carries, and make
+displacement a rotation rather than a scalar.
+
+```python
+# core/displacement.py  (target)
+@dataclass
+class Displacement:
+    """The gap between origin and near-pass, measured per loop. Two components."""
+    potential: float        # Δφ over the loop
+    role_rotation: float     # accumulated SOURCE/TARGET/MODULATOR rotation over the loop
+    # magnitude = the remainder; the sequence of magnitudes gives the spiral pitch;
+    # d(magnitude)/d(loop) gives stability (§2.6)
+
+class StepTopology(Enum):     # (target) replaces PassageStep.regime_change
+    DEFORMATION    = "deformation"     # shape changed, topological type preserved
+    TOPOLOGICAL_CUT = "topological_cut" # closed <-> open: the genuine regime change
+
+# passage/traversal.py  (target) — the central object
+@dataclass
+class Walker:
+    """Carries a position (the simplex we are 'in', as its C) and records
+    its own accumulated rotation. The network is the trace it deposits."""
+    position: str                       # current Simplex id (we occupy its C)
+    visited: list[str]                  # ordered Simplex ids — the path
+    deposited: SimplexNetwork           # the trace, grown as we walk
+    rotation_log: list[Displacement]    # one sample per near-return
+    origin_terms: set[str]              # for neighbourhood-of-start recognition
+
+@dataclass
+class Traversal:
+    """A passage reconceived as a walk. Supersedes the network-queried engine."""
+    walker: Walker
+    steps: list[PassageStep]            # each step also carries StepTopology
+    operative_zero: OperativeZero       # derived from rotation_log
 ```
 
 ---
@@ -385,8 +547,14 @@ extractor artifacts.
 
 ## 10. Design Constraints
 
-1. **The simplex is the primitive.** No component may claim to access or
+1. **The simplex is the irreducible unit; the traversal is the central object.**
+   The `SimplexNetwork` is the trace a traversal deposits, not a prior substrate.
+   The engine is a walker, not a viewer. No component may claim to access or
    represent the pre-individual field as such.
+
+1a. **The analyst is the C.** To relate A and B is to occupy their modulator
+   position from inside. Externality (the germ "from outside") is the freedom to
+   choose the next simplex, exercised from within — not a god's-eye vantage.
 
 2. **Decoupled corpus.** The engine takes a `CorpusProvider`; it knows nothing
    about the source format. A library, a directory, a URL set — all are providers.
@@ -421,9 +589,16 @@ extractor artifacts.
 - `Eddy` output with ledger serialization
 - CLI: corpus scan / germ / passage / eddy show
 
-**Phase 2 — Analysis**
+**Phase 2 — Walker refactor + analysis**
+- **Walker refactor (§2.3, §5.1)** — invert the engine: the `Traversal`/`Walker`
+  becomes the central object; the network becomes its deposited trace
+- **Two-component `Displacement`** — replace scalar displacement with
+  potential + role-rotation; remainder, spiral pitch, and stability derive from it
+- **Conic regime** on `OperativeZero` (circle/ellipse/parabola/hyperbola/spiral)
+- **Split `regime_change`** into `deformation` vs `topological_cut` (closed↔open)
 - `analyze/differential.py` — convergence/divergence maps
-- `analyze/compare.py` — projection comparison (transduction detection)
+- `analyze/compare.py` — projection comparison (transduction + closure detection:
+  who keeps the spiral open, who closes it)
 - `analyze/phase.py` — phase transition detection
 - `analyze/commitment.py` — commitment trace
 - `BiblioProvider` — reads Bibliography JSON entries + topic_map
