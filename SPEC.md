@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.3
+> Version: 0.4
 > Status: Working draft
 
 ---
@@ -80,12 +80,19 @@ next simplex, exercised from within. The **germ** is where we start plus the
 direction we step — analyst-supplied or selected from detected candidates, but
 in either case enacted as a walk, not read off a structure.
 
-As we step, role mobility acts on the relation between our position and the
-terms: either the terms rotate around our held position, or we are ourselves
-re-roled (what was our act of relating becomes a term the next relating works
-on). Either way the walk accumulates a **relative rotation**. This is why a
-return is never identical — and it is what the traversal must measure. Three
-questions the walker must answer:
+The live position is always C. To experience an A→B relation is to be its
+modulator, and the experiencing-now is never its own object. This is
+**indexically** always-C, not substantively — and not a god's-eye vantage,
+because there is no final C: the moment we represent our own relating (take a
+representation of ourselves *as* subject), that representation becomes an A or a
+B, modulable by a further C, which is in turn never its own object in the act.
+A and C are **simultaneous**, not sequential — the same term is A in one simplex
+and C in another at once. So what rotates over the walk is never the live
+position but the **represented self — the prior trace** we re-enter as the A or B
+of a new simplex. The walk accumulates a relative rotation between the live C and
+its own deposited representations. This is why a return is never identical: we
+come back to a term we laid down, but the laying-down was modulated by an
+experiencing the term cannot contain. Three questions the walker must answer:
 
 1. **Are we approaching the start?** — by re-entering a simplex sharing terms
    with the origin. We recognise a *neighbourhood*, never an identity: we come
@@ -95,6 +102,18 @@ questions the walker must answer:
 3. **What path did we take?** — the ordered simplexes entered, the
    continuity/discontinuity measured at each (§2.7), and the rotation
    accumulated. That sequence *is* the eddy (§2.9).
+
+**The subject's operative zero.** Because the live C never coincides with any
+representation of itself, the subject is its own spiral: it returns to itself, in
+self-representation, always displaced. This non-self-coincidence is structural and
+permanent — the operative zero of the subject, approached at every reflexive turn
+and never reoccupied (anatta given the model's geometry: no self-coincidence,
+hence no svabhāva of the self). It is also why always-C is *not* the lossless
+observer it might seem. The live C is not a self; it is pure relating, with no
+standing content to hoard. The loss is real and falls on the *represented* self —
+the A/B that is modulated, displaced, consumed — which the live C witnesses and is
+implicated in without being identical to. Emptiness (no-thing, hence no ledger to
+escape), not the fantasy of a thing that escapes the ledger.
 
 ### 2.4 The aporia as role rotation
 
@@ -204,6 +223,20 @@ a high-displacement spiral germ and drives its displacement toward zero is
 *performing closure* on it — turning a spiral into a circle. Comparing two
 projections over the same germ (§Phase 2) can detect which keeps the spiral open
 and which closes it.
+
+**The dial is where agency lives.** The continuity/discontinuity measure is not
+only read off a step; from the C position it is also *set*. The modulator's one
+real power is to skew the relation it inhabits — toward continuity (let A and B
+flow into one gradient: the path closes, the circle, absorption) or toward
+discontinuity (hold A and B apart across the break: the path opens, the spiral,
+the cut). This is the locus of agency in the ontology — not sovereign choice over
+the field (impossible: we are inside, modulated, partial) but the immanent,
+bounded power to lean the dial of the very relation we are. It answers the agency
+problem a process ontology otherwise leaves open: agency is neither outside the
+flow nor nothing, but the C's in-tensional skew. On the meditation cushion this is
+the whole practice — concentration skews toward continuity, insight toward
+discontinuity — and skewing toward discontinuity is the opening the project calls
+liberation.
 
 ### 2.8 The passage
 
@@ -431,13 +464,21 @@ class StepTopology(Enum):     # (target) replaces PassageStep.regime_change
 # passage/traversal.py  (target) — the central object
 @dataclass
 class Walker:
-    """Carries a position (the simplex we are 'in', as its C) and records
-    its own accumulated rotation. The network is the trace it deposits."""
+    """The live position. ALWAYS C (indexically): to be the walker is to
+    modulate the current A->B relation; the experiencing-now is never its own
+    object. The walker does NOT rotate roles. What rotates is its own deposited
+    trace, which it can re-enter as the A or B of a new simplex — reflexivity is
+    stepping into a simplex whose A/B is one's own prior self. The network is the
+    trace it deposits."""
     position: str                       # current Simplex id (we occupy its C)
     visited: list[str]                  # ordered Simplex ids — the path
     deposited: SimplexNetwork           # the trace, grown as we walk
     rotation_log: list[Displacement]    # one sample per near-return
     origin_terms: set[str]              # for neighbourhood-of-start recognition
+    dial: float                         # the C's one ACTIVE parameter — the locus
+                                        # of agency. Skew of the current A-B relation:
+                                        # -1 = max continuity (close/absorb),
+                                        # +1 = max discontinuity (cut/open).
 
 @dataclass
 class Traversal:
@@ -552,9 +593,18 @@ extractor artifacts.
    The engine is a walker, not a viewer. No component may claim to access or
    represent the pre-individual field as such.
 
-1a. **The analyst is the C.** To relate A and B is to occupy their modulator
-   position from inside. Externality (the germ "from outside") is the freedom to
-   choose the next simplex, exercised from within — not a god's-eye vantage.
+1a. **The live subject is always C — indexically, not substantively.** To relate
+   A and B is to occupy their modulator position from inside; the experiencing-now
+   is never its own object. This is not a god's-eye vantage, because there is no
+   final C: any representation of the subject becomes an A/B for a further C, and
+   A and C are simultaneous. What rotates is the represented self (the prior
+   trace), never the live position. Externality (the germ "from outside") is the
+   freedom to choose the next simplex and to set the dial, exercised from within.
+
+1b. **Agency is the dial.** The one active power in the system is the C's
+   in-tensional skew of the relation it inhabits — toward continuity (closing) or
+   discontinuity (opening). Bounded and immanent: neither sovereign choice nor
+   nothing. This is where agency lives in a process ontology.
 
 2. **Decoupled corpus.** The engine takes a `CorpusProvider`; it knows nothing
    about the source format. A library, a directory, a URL set — all are providers.
