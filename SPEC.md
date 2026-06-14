@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.4
+> Version: 0.5
 > Status: Working draft
 
 ---
@@ -134,39 +134,55 @@ pre-computed.
 ### 2.5 Displacement, the spiral, and the operative zero
 
 When the walk returns near its origin, the gap between origin and near-pass is
-the **displacement**, and it has two components:
+the **displacement**. It is **complex** — a magnitude and a phase:
 
-- **potential-displacement** — the change in φ (intensity) over the loop
-- **role-displacement** — how far the configuration rotated over the loop
+```
+z = (potential-displacement)  +  i · (role-displacement)
+  = magnitude · e^{ i · role-phase }
+```
 
-The Euthyphro is the pure role-displacement case: same terms, same magnitudes,
-rotated roles — zero potential change, maximal role change. A scalar displacement
-cannot hold this; the rotation is the substance of it.
+- **potential-displacement** (real / radial) — the change in φ (intensity) over
+  the loop
+- **role-displacement** (phase) — how far the configuration rotated over the loop.
+  The phase increment depends on the role-cycle: a 2-role swap A↔B is a half-turn;
+  a full A→B→C→A is a third-turn.
 
-This yields the circle/spiral distinction:
+The Euthyphro is **pure phase, zero magnitude**: same terms, same intensity,
+rotated role. A scalar cannot hold this — the rotation is its substance. This is
+Spencer-Brown's imaginary value: `f = ¬f` has no real solution because negation is
+a half-turn, and the value that resolves the oscillation is its root, the
+quarter-turn `i`, off the real line. The imaginary component is the dimension a
+relation requires when it turns on itself.
 
-- **Circle** — return to the same term in the *same* role. True closure;
-  displacement 0. A degenerate germ — no aporia.
-- **Spiral** — return to the same term in a *rotated* role. Genuine non-closure.
-  The **pitch of the spiral is the accumulated role-rotation per loop.**
+**No circle ever closes.** What looks like a circle is the path
+`1 → i → −1 → −i → 1` projected onto the real axis — the imaginary legs dropped,
+so it merely *appears* to return to itself. Keep the phase and it never rests: it
+crosses 0 (the unmarked) between real and imaginary, and crosses again, endlessly
+(re-entry). The perfect circle is the **operative zero of the conic family** — the
+e=0 limit approached and never occupied. Closure is always virtual: |z| → 0 but
+never reaches 0.
 
-Every genuine germ traces a spiral, and the **operative zero** is the center the
-spiral winds around but never occupies — the asymptotic nonpoint that every
-return has already missed. Zero as non-closure, not emptiness.
+- **Spiral** — return to the same term with phase accumulated. Genuine
+  non-closure. The **pitch of the spiral is the accumulated role-phase per loop.**
+  Every *actual* trajectory is a spiral; the circle is its unreachable limit.
 
-The conic family classifies germ trajectories by displacement-per-cycle (an
-eccentricity analog):
+The **operative zero** is the center the spiral winds around but never occupies —
+the asymptotic nonpoint every return has already missed. Zero as non-closure, not
+emptiness.
+
+The conic family classifies trajectories by how |z| behaves per cycle (an
+eccentricity analog). The named conics are *idealizations*; any realized
+trajectory has nonzero pitch and is a spiral:
 
 | Conic | trajectory | regime |
 |---|---|---|
-| **Circle** (e=0) | closes exactly | degenerate; not aporetic |
-| **Ellipse** (0<e<1) | bounded recurrence, precesses; orbits a real center | oscillating — Z real, interior |
+| **Circle** (e=0) | the unreachable limit of closure | operative zero of the family; never occupied |
+| **Ellipse** (0<e<1) | bounded recurrence, precesses; winds a real center | oscillating — Z real, interior |
 | **Parabola** (e=1) | escapes exactly at the boundary | the separatrix; the threshold itself |
 | **Hyperbola** (e>1) | unbound; escapes the basin | diverging — Z virtual, →∞ |
-| **Spiral** (non-conic) | returns displaced; winds a center it never reaches | the genuine germ |
 
-A circle is the degenerate spiral of zero pitch. "Return without closure,
-repetition without identity" is the spiral signature.
+"Return without closure, repetition without identity" is the signature of all of
+them: |z| is never zero.
 
 ### 2.6 The one quantity: remainder = spiral pitch = stability
 
@@ -202,9 +218,10 @@ distinction:
 - **continuity** at a step = a **deformation** (A and B on one continuous figure)
 - **discontinuity** at a step = a **cut** (A and B across a topological break)
 
-Globally, whether the whole walk closes (circle) or opens (spiral) is the
-*integral* of these local choices. Continuity all the way → the path can close →
-circle. One genuine discontinuity → the cut that opens it → spiral.
+Globally, whether the whole walk tightens toward the circle (closure approached,
+never reached) or opens into a wider spiral is the *integral* of these local
+choices. Continuity all the way → the path tends toward the circle, its
+unreachable limit. One genuine discontinuity → the cut that widens the spiral.
 
 This sharpens regime change. Closed figures (circle, ellipse, square, amoeba) are
 homeomorphic — you deform one into another continuously, *variation within a
@@ -227,9 +244,9 @@ and which closes it.
 **The dial is where agency lives.** The continuity/discontinuity measure is not
 only read off a step; from the C position it is also *set*. The modulator's one
 real power is to skew the relation it inhabits — toward continuity (let A and B
-flow into one gradient: the path closes, the circle, absorption) or toward
-discontinuity (hold A and B apart across the break: the path opens, the spiral,
-the cut). This is the locus of agency in the ontology — not sovereign choice over
+flow into one gradient: the path tightens toward the circle, absorption) or toward
+discontinuity (hold A and B apart across the break: the path opens into a wider
+spiral, the cut). This is the locus of agency in the ontology — not sovereign choice over
 the field (impossible: we are inside, modulated, partial) but the immanent,
 bounded power to lean the dial of the very relation we are. It answers the agency
 problem a process ontology otherwise leaves open: agency is neither outside the
@@ -240,8 +257,15 @@ liberation.
 
 ### 2.8 The passage
 
-A passage is a run of the engine from germ injection through the corpus field.
-Each step: actualize new simplexes, classify propagation mode, record remainder.
+A run takes an **A, a B, and a specification of the modulation** — that is, a
+*seed simplex* (modulation = a deposited C-term at a dial setting, §2.7). The live
+walker occupies C, wields that modulation over the chosen A and B, and walks.
+There is no network handed in: the network is what the walk deposits. "Germ" was
+only ever this triple — the simplex we start in plus the lean we give it — and it
+supersedes the earlier `(network, germ)` framing.
+
+Each step: actualize new simplexes, classify propagation mode, record the
+(complex) displacement.
 
 **Propagation modes** (never pure — the distribution across steps is the signal):
 
@@ -313,6 +337,15 @@ class CorpusProvider(ABC):
 
 Implementations: `DirectoryProvider` (Phase 1). `BiblioProvider` (Phase 2,
 reading from the Bibliography's JSON entries + topic_map — kept decoupled).
+
+> **Role-neutrality (walker model).** "Corpus" names a *role* a source plays on a
+> given passage, not a property of the source. Every deposited thing — primary
+> texts, the topic_map, the eddy_ledger, the book itself — is a re-enterable term
+> that can be A, B, or C depending on the traversal (only the live C never
+> rotates, §2.3). So a provider is just a source of deposited terms; the run takes
+> a seed simplex `(A, B, modulation)` (§2.8), not a provider. `germ` / `corpus` /
+> `modulator` are roles the traversal assigns, never fixed kinds. (The Phase-1
+> `CorpusProvider` over-names this; the role-neutral source is the Phase-2 target.)
 
 ---
 
@@ -451,11 +484,28 @@ displacement a rotation rather than a scalar.
 # core/displacement.py  (target)
 @dataclass
 class Displacement:
-    """The gap between origin and near-pass, measured per loop. Two components."""
-    potential: float        # Δφ over the loop
-    role_rotation: float     # accumulated SOURCE/TARGET/MODULATOR rotation over the loop
-    # magnitude = the remainder; the sequence of magnitudes gives the spiral pitch;
-    # d(magnitude)/d(loop) gives stability (§2.6)
+    """The gap between origin and near-pass, per loop. COMPLEX: a magnitude and a
+    phase. real = potential-change; imag = role-rotation (the phase a relation
+    accrues when it turns on itself — Spencer-Brown's imaginary value)."""
+    potential: float         # real part: Δφ over the loop
+    role_phase: float        # imag part: accumulated role-rotation (radians);
+                             #   half-turn for a 2-role swap, third-turn for A→B→C→A
+    # magnitude = abs(z) = the remainder, NEVER zero (no circle closes);
+    # the sequence of magnitudes gives the spiral pitch;
+    # d(magnitude)/d(loop) gives stability (§2.6).
+    # A real circle (magnitude 0) is the operative zero of the conic family:
+    # approached, never instantiated as an actual value.
+
+# passage/run.py  (target) — the run signature
+@dataclass
+class Modulation:
+    """What the live C wields over a chosen A and B: a deposited C-term at a dial."""
+    c_term: Term            # the modulator deployed (may be held stable across the loop)
+    dial: float             # -1 max continuity (close/absorb) .. +1 max discontinuity (cut/open)
+
+# a run takes a seed simplex, not (network, germ):
+#     run(a: Term, b: Term, modulation: Modulation) -> Traversal
+# the network is the trace the run deposits.
 
 class StepTopology(Enum):     # (target) replaces PassageStep.regime_change
     DEFORMATION    = "deformation"     # shape changed, topological type preserved
@@ -626,6 +676,14 @@ extractor artifacts.
 8. **No metaphor sovereignty.** Metaphors are operators. The engine discovers
    its regime; it does not pre-commit to crystallising or oscillating.
 
+9. **Do not close non-closure (the Spencer-Brown caution).** Displacement stays
+   complex and *walked* — enacted per loop, never collapsed to a real scalar or
+   hardened into a settled token. A formalism that names the non-closing value and
+   rests there has reified the spiral back into a circle (Laws of Form's re-entry,
+   recaptured into a closed calculus). Non-closure may be recorded but never
+   finished — including this rule: "no circle closes," made into a tidy law,
+   closes it.
+
 ---
 
 ## 11. Roadmap
@@ -642,9 +700,12 @@ extractor artifacts.
 **Phase 2 — Walker refactor + analysis**
 - **Walker refactor (§2.3, §5.1)** — invert the engine: the `Traversal`/`Walker`
   becomes the central object; the network becomes its deposited trace
-- **Two-component `Displacement`** — replace scalar displacement with
-  potential + role-rotation; remainder, spiral pitch, and stability derive from it
-- **Conic regime** on `OperativeZero` (circle/ellipse/parabola/hyperbola/spiral)
+- **Run signature `(A, B, modulation)`** — a seed simplex; retire `(network, germ)`.
+  Sources become role-neutral (the run takes a simplex, not a provider)
+- **Complex `Displacement`** — real = potential-change, imag = role-rotation;
+  magnitude = remainder (never zero); spiral pitch and stability derive from it
+- **Conic regime** on `OperativeZero` (ellipse/parabola/hyperbola; circle = the
+  unreachable limit / operative zero of the family — never an actual state)
 - **Split `regime_change`** into `deformation` vs `topological_cut` (closed↔open)
 - `analyze/differential.py` — convergence/divergence maps
 - `analyze/compare.py` — projection comparison (transduction + closure detection:
