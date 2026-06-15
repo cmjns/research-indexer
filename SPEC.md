@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.6
+> Version: 0.7
 > Status: Working draft
 
 ---
@@ -218,6 +218,16 @@ distinction:
 - **continuity** at a step = a **deformation** (A and B on one continuous figure)
 - **discontinuity** at a step = a **cut** (A and B across a topological break)
 
+**The metric (resolving the load-bearing hole).** Continuity is operationalised
+as *how much A and B already share a neighbourhood*: overlap of the terms/relations
+adjacent to each, inverse domain-distance (same domain → continuous; cross-domain
+→ discontinuous), and the smoothness of the φ-path between them (a gradient vs a
+jump). High overlap / same domain / smooth gradient = continuity ≈ 1; no shared
+neighbourhood / cross-domain / φ-jump = discontinuity ≈ 1. This is **axis-2**
+(§2.15), the thing the dial acts on; without it the dial has nothing to grip. The
+conic eccentricity is its integral: a walk of mostly-continuous steps tends toward
+the circle; one genuine high-discontinuity step is the cut that widens the spiral.
+
 Globally, whether the whole walk tightens toward the circle (closure approached,
 never reached) or opens into a wider spiral is the *integral* of these local
 choices. Continuity all the way → the path tends toward the circle, its
@@ -339,23 +349,29 @@ turn *as Russell*, *as Waite*. The persona does the turning; the analyst chose t
 persona (and may switch).
 
 Every plan is **structured randomness** — a constrained draw plus an
-interpretation of the draw into a step — and plans vary in two dimensions:
+interpretation of the draw into a step — and a plan is set on **three independent
+axes** (§2.15; *not* one, as v0.6 wrongly said):
 
-- **structure : randomness ratio** — the dial of §2.7. All structure, no
-  randomness = pure deduction = the sense pole (bondage). All randomness, no
-  structure = the coin flip = the nonsense pole (dissolution). The oracle is the
-  productive middle.
-- **steering faculty** — *what* does the turning: logic, affect, symbol, chance.
+- **structure : randomness** — how determined the choice is. All structure =
+  deduction = the sense pole (bondage); all randomness = the coin flip = the
+  nonsense pole (dissolution); the oracle is the productive middle. *This is not
+  the §2.7 dial* — that was the v0.6 error.
+- **continuity : discontinuity** — the §2.7 dial: does the chosen step stay
+  in-gradient or cut. Independent of the first axis (proof: transduction is a
+  *structured* discontinuity — high structure **and** high discontinuity).
+- **steering faculty** — *which gradient* the turning ascends: logic (entailment),
+  affect (variation in power-of-acting, §2.15), symbol (the oracular spread),
+  chance (none).
 
 Named plans (illustrative, pluggable):
 
-| Plan | faculty | structure:randomness |
-|---|---|---|
-| **Russell** | logic (deduction) | ≈ all structure (sense pole) |
-| **Debord** | chance (the dérive, coin flip) | ≈ all randomness (nonsense pole) |
-| **Sacks** | affect (resonance; the symptom as guide; drawn by what moves) | structured by feeling |
-| **Vintagia** | symbol (I-Ching) | structured randomness |
-| **Waite** | symbol (tarot) | structured randomness |
+| Plan | faculty | structure:randomness | continuity bias |
+|---|---|---|---|
+| **Russell** | logic (deduction) | ≈ all structure | continuity (stays in-gradient) |
+| **Debord** | chance (the dérive, coin flip) | ≈ all randomness | unbiased |
+| **Sacks** | affect (power-change; the symptom as a changed capacity) | structured by affect | mixed |
+| **Vintagia** | symbol (I-Ching) | structured randomness | reader-set |
+| **Waite** | symbol (tarot) | structured randomness | reader-set |
 
 Auto mode *is* structured randomness: the engine consults an oracle — a
 constrained random draw over available terms (trace + source) into positions,
@@ -409,6 +425,88 @@ circle. The machine does the non-attached mapping tirelessly; the human owns the
 attached, responsible push. **Ethics lives where the telos does — with the
 analyst, never the map.** The strategic push is therefore explicitly out of the
 system's scope (§10, constraint #10): the system informs; it does not act.
+
+### 2.15 The axes of the walk
+
+v0.6 collapsed several distinctions into "one axis." That was a continuity-skew —
+a flight toward the sense-sun, closing a higher-dimensional structure into a line
+(exactly the move #9 forbids). Under pressure it splits into **three independent
+axes**, plus a recursion:
+
+1. **structure ↔ randomness** — how determined the next-step choice is. The
+   subjectivity's `structure_ratio` (§2.12). Poles: deduction / coin flip.
+2. **continuity ↔ discontinuity** — whether the chosen step stays in-gradient or
+   cuts. The §2.7 dial, with the metric there. The conic eccentricity is its
+   integral (circle ← continuity; hyperbola ← discontinuity).
+3. **steering faculty** — *which gradient* is ascended: logic, **affect**, symbol,
+   chance. Categorical, not a continuum.
+
+The proof they are independent is **transduction**: a *structured* (axis 1 high)
+*discontinuity* (axis 2 high) — a principled cross-domain cut. The 1D collapse
+erased exactly this corner, which is the germ-generating move. So the
+propagation modes are not a fourth axis: they are positions on axis 2 *at high
+structure* — deduction (continuity), induction (mild), transduction (the cut).
+Randomness is axis 1; the conics are axis 2; faculty is axis 3.
+
+**Affect (axis 3, from Deleuze).** Affect is the Spinozan *affectus* — the
+variation in a body's power of acting, not feeling. A term's power ≈ its capacity
+to enter relations (onward connectivity × gain × φ). Affect = **d(power)/d(step)**:
+a step that augments the configuration's power to continue is joyful; one that
+diminishes it, sad. The Sacks plan ascends this gradient — drawn where capacity is
+*changing* (the symptom is a body with a different power of acting). Note the model
+keeps minting differentials — displacement, stability, affect — which is the
+differential ontology (Deleuze's dx) confirming its ground: the primitives are
+rates of becoming, not magnitudes.
+
+### 2.16 Iteration: the map re-enters
+
+A single walk is one spiral — one neighbourhood. The **map re-enters as input**:
+re-seed from the prior map's affordances, walk again, accrete the orbit of
+neighbourhoods. The survey *is* this iteration. Comparing successive maps,
+divergence is information and convergence is information — a **map of the maps**.
+
+This is the spiral one scale up, self-similar (the eddy_ledger already said eddies
+contain sub-eddies of the same structure). The divergence/convergence between
+map_n and map_{n+1} is *displacement at the map scale*; the map-of-maps is its
+rotation-log; its conic regime is the survey's regime. No new machinery — the walk
+machinery applied to maps-as-terms.
+
+Two consequences:
+- **A second timescale.** Step-time (within a walk) vs iteration-time (across
+  maps). "Metastabilities on different timescales" now has a referent: fast
+  variables change within a walk, slow ones only across iterations (resilience
+  theory's slow/fast split).
+- **φ bootstraps.** The first map is rough (thin trace); each iteration thickens
+  it. The cold-start circularity (φ derived from the trace the walk creates) is a
+  transient that iteration resolves, like a fixed-point computation.
+
+### 2.17 Halting: the invariant of the variation
+
+A run must stop, but **never on motion ceasing** — nothing closes (#9). It halts
+when the map-of-maps exhibits an **invariant of the variation** — when the
+*manner* of changing becomes legible:
+
+- **self-similar** — successive maps coincide; the map stops shifting. The 0th-order
+  invariant — and the *unreachable limit* (the map-scale circle, e=0, approached
+  never occupied).
+- **invariantly variant** — the map keeps shifting, but the *law of its shifting*
+  is stable: a limit cycle, a stationary process, a strange attractor, a
+  constant-pitch spiral. The 1st-order (or higher) invariant. **This is the working
+  halt:** you stop on knowing the regime of the non-closure, never on its stopping.
+
+The order of invariant you accept is itself a **clinging parameter.** Demanding the
+0th order — waiting for self-similarity, for the map to stop — is demanding closure:
+the circle that never comes, the dukkha failure mode, and precisely the error #9
+forbids. Accepting the 1st order — halting on a characterised spiral — releases the
+demand. So the **default is invariant-variance**; "wait for the map to stop" is a
+strict, rarely-reached, clinging option. (The accepted order ends a regress — *is
+the invariant itself invariant?* — by choice; the halt condition spirals too.)
+
+Halting is a **level-1** act: "how regular before I call it mapped" is a resolution
+setting on reconnaissance, not a strategic push, so the engine may hold it. A walk
+that neither converges nor clearly diverges is not a special case — it halts iff
+its *intermittency is itself invariant* (stable statistics), and runs on, correctly,
+only while that character is still drifting.
 
 ---
 
@@ -621,10 +719,10 @@ class Walker:
     deposited: SimplexNetwork           # the trace, grown as we walk
     rotation_log: list[Displacement]    # one sample per near-return
     origin_terms: set[str]              # for neighbourhood-of-start recognition
-    dial: float                         # the C's one ACTIVE parameter — the locus
-                                        # of agency. Skew of the current A-B relation:
-                                        # -1 = max continuity (close/absorb),
-                                        # +1 = max discontinuity (cut/open).
+    dial: float                         # axis-2 (§2.15): continuity-bias of the
+                                        # current A-B choice. -1 = max continuity
+                                        # (close/absorb), +1 = max discontinuity
+                                        # (cut/open). The locus of agency.
 
 @dataclass
 class Traversal:
@@ -633,20 +731,30 @@ class Traversal:
     steps: list[PassageStep]            # each step also carries StepTopology
     operative_zero: OperativeZero       # derived from rotation_log
 
-# subjectivity/plan.py  (target) — how the walker turns (§2.12)
+# subjectivity/plan.py  (target) — how the walker turns (§2.12, §2.15)
 @dataclass
 class SubjectivityPlan:
     """A borrowed subject the live C wears. Supersedes the bare NavigationStrategy:
     a persona = a structured-randomness draw + an interpretation of the draw into
-    the next step. Auto mode runs the plan (the code reads tarot); manual mode uses
-    the analyst as interpreter."""
+    the next step. Set on THREE independent axes (§2.15), not one. Auto mode runs
+    the plan (the code reads tarot); manual mode uses the analyst as interpreter."""
     name: str               # "Russell" | "Debord" | "Sacks" | "Vintagia" | "Waite" | ...
-    faculty: str            # "logic" | "affect" | "symbol" | "chance"
-    structure_ratio: float  # 0.0 = pure randomness (nonsense) .. 1.0 = pure structure (sense);
-                            #   this is the dial (§2.7) as a standing setting
+    faculty: str            # axis 3: "logic" | "affect" | "symbol" | "chance"
+    structure_ratio: float  # axis 1: 0.0 = pure randomness (nonsense) .. 1.0 = pure structure (sense)
+    continuity_bias: float  # axis 2: -1 = seek continuity .. +1 = seek discontinuity (the dial)
     def draw(self, walker: "Walker", source) -> list[Term]: ...   # the constrained random spread
     def read(self, spread: list[Term], walker: "Walker") -> str: ...  # spread -> next Simplex id
     # read() must preserve displacement, not resolve it (constraint #9 / §2.12 caution)
+
+def continuity(a: Term, b: Term, trace, source) -> float:   # (target) §2.7 metric, axis-2
+    """0 = a cut (no shared neighbourhood / cross-domain / phi-jump);
+    1 = a deformation (high overlap / same domain / smooth gradient)."""
+    ...
+
+def affect(term: Term, walker: "Walker") -> float:          # (target) §2.15 faculty
+    """Deleuzian affectus: d(power)/d(step), power ~= onward-connectivity * gain * phi.
+    >0 augments the configuration's power to continue (joy); <0 diminishes (sad)."""
+    ...
 
 # map/map.py  (target) — the deliverable (§2.13)
 @dataclass
@@ -664,6 +772,24 @@ class Affordance:
     site: list[str]         # term/simplex ids
     kind: str               # "near_threshold" | "multiscale_metastability" | "interference_amplification"
     measure: float          # strength (free energy near critical, λ, |z|-to-threshold, ...)
+
+# map/iterate.py  (target) — iteration & the map-of-maps (§2.16–2.17)
+class HaltRegime(Enum):
+    SELF_SIMILAR      = "self_similar"        # 0th-order invariant; the unreachable limit (rarely fires)
+    INVARIANTLY_VARIANT = "invariantly_variant"  # 1st+-order invariant; the WORKING halt
+    NONE              = "none"                 # no invariant yet — keep iterating
+
+@dataclass
+class MapSequence:
+    """The map re-enters as input; this is the spiral one scale up. Successive maps
+    are near-returns; map_n -> map_{n+1} divergence/convergence is displacement at
+    the map scale. Introduces iteration-time (the second timescale)."""
+    maps: list[Map]
+    map_displacements: list[Displacement]   # one per iteration (the map-of-maps rotation-log)
+    def halt(self, accepted_order: int = 1) -> HaltRegime: ...
+    # accepted_order is a CLINGING parameter: order 0 demands self-similarity
+    # (closure, dukkha — rarely fires); order >=1 accepts a characterised spiral.
+    # Default 1 = non-clinging. Never halt on motion ceasing (constraint #11).
 ```
 
 ---
@@ -688,12 +814,16 @@ class SubjectivityService:
     def list_plans(self) -> list[str]: ...
 
 class MapService:
-    """Runs walks under a subjectivity and assembles the map (§2.13).
-    Produces terrain + affordances; it does NOT decide the push (§2.14)."""
+    """Runs walks under a subjectivity and assembles the map (§2.13), then
+    ITERATES — re-seeding from affordances — until the map-of-maps shows an
+    invariant (§2.16–2.17). Produces terrain + affordances; it does NOT decide
+    the push (§2.14)."""
     def survey(self, source, seed: tuple,            # seed = (A, B, modulation)
-               subjectivity: str, max_steps: int) -> Map: ...
+               subjectivity: str, max_steps: int,
+               accepted_order: int = 1) -> MapSequence: ...   # halts on invariant, default non-clinging
     # NB: there is no `decide()` / `push()` — the strategic choice is the analyst's,
-    # out of scope by constraint #10.
+    # out of scope by constraint #10. Halting is level-1 (a resolution setting), so
+    # the engine may hold it, but never halts on motion ceasing (#11).
 ```
 
 ---
@@ -842,7 +972,20 @@ extractor artifacts.
     and never enacts the push. `MapService` has no `decide()`/`push()`. Ethics
     lives where the telos does — with the analyst. The walk-step is furnished, not
     automated away: the engine offers personas and shows the chooser where they
-    are on the axis; it does not make the strategic choice.
+    are on the axes; it does not make the strategic choice.
+
+11. **Halt on the invariant, never on motion ceasing.** A run stops when the
+    map-of-maps shows an invariant of the variation (§2.17): self-similar (the
+    unreachable limit) or — the working case — *invariantly variant* (a
+    characterised spiral). The accepted order of invariant is a clinging parameter;
+    the default is non-clinging (accept a stable regime of variation). Demanding
+    self-similarity is demanding closure (#9) and will not halt. Halting is a
+    level-1 resolution setting, so the engine may hold it.
+
+12. **The walk has three axes, not one (§2.15).** structure↔randomness,
+    continuity↔discontinuity, and steering faculty are independent (transduction =
+    structured discontinuity proves it). No collapse to a single dial; collapsing
+    is itself a sense-skew (#9).
 
 ---
 
@@ -874,15 +1017,25 @@ extractor artifacts.
 - `analyze/commitment.py` — commitment trace
 - `BiblioProvider` — reads Bibliography JSON entries + topic_map
 
-**Phase 3 — Subjectivity, map, pattern library, fold**
-- **`SubjectivityService`** (§2.12) — pluggable subjectivity-plans (Russell,
-  Debord, Sacks, Vintagia, Waite); each = structured-randomness draw + interpreter;
-  the dial is a standing `structure_ratio`. Auto mode = the code reads the oracle.
-- **`MapService` + `Map`** (§2.13) — survey under a subjectivity; terrain +
-  affordances (leverage points). No `decide()`/`push()` (constraint #10).
+**Phase 3 — Subjectivity, map, iteration, pattern library, fold**
+- **Three-axis model (§2.15)** — `continuity` metric (axis-2, the load-bearing
+  hole, #4) + the `affect` faculty (axis-3, Deleuzian d(power)/d(step)); keep the
+  three axes independent (#12).
+- **`SubjectivityService`** (§2.12) — pluggable plans (Russell, Debord, Sacks,
+  Vintagia, Waite); each = structured-randomness draw + interpreter on three axes
+  (`structure_ratio`, `continuity_bias`, `faculty`). Auto mode = the code reads the
+  oracle; interpreter must preserve displacement.
+- **`MapService` + `Map` + iteration (§2.13, §2.16–2.17)** — survey under a
+  subjectivity; terrain + affordances; the map re-enters as input (the map-of-maps,
+  the spiral one scale up); halt on the invariant of the variation, default
+  non-clinging (#11). No `decide()`/`push()` (#10).
 - `PatternMatcher` — detects known germ templates in new passages
 - `Fold` — two-network interference (question-as-projection meets corpus)
 - Parameter discovery (probe text dynamics; don't pre-set engine regime)
+
+**Still open (next spec pass): #2 / #5** — make role-phase genuinely multiplicative
+(roots of unity) so the complex displacement is load-bearing, not ornamental;
+resolve the half-turn vs third-turn ambiguity.
 
 **Phase 4 — Additional extractors**
 - `ArgumentExtractor`, `CorpusExtractor`, `StructuredDataExtractor`
