@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.7
+> Version: 0.8
 > Status: Working draft
 
 ---
@@ -143,16 +143,58 @@ z = (potential-displacement)  +  i · (role-displacement)
 
 - **potential-displacement** (real / radial) — the change in φ (intensity) over
   the loop
-- **role-displacement** (phase) — how far the configuration rotated over the loop.
-  The phase increment depends on the role-cycle: a 2-role swap A↔B is a half-turn;
-  a full A→B→C→A is a third-turn.
+- **role-displacement** (phase) — how far the configuration turned over the loop.
 
-The Euthyphro is **pure phase, zero magnitude**: same terms, same intensity,
-rotated role. A scalar cannot hold this — the rotation is its substance. This is
-Spencer-Brown's imaginary value: `f = ¬f` has no real solution because negation is
-a half-turn, and the value that resolves the oscillation is its root, the
-quarter-turn `i`, off the real line. The imaginary component is the dimension a
-relation requires when it turns on itself.
+The Euthyphro is **pure imaginary** — role rotated, potential unchanged; nonzero
+magnitude (which is why it does not close). A scalar cannot hold this; the rotation
+is its substance.
+
+**The role-triangle is a deformable scalene figure, not a rigid one.** Earlier
+drafts modelled role-change as a finite symmetry group (clean turns and flips of an
+equilateral triangle). That is wrong: the three relations A–B, B–C, C–A carry
+*different* intensities, so the figure is always scalene, and a scalene triangle
+has **no exact symmetries**. The group breaks. Role-change is instead a *continuous
+deformation* of the figure — edges lengthening and shortening, angles opening and
+closing — as energy redistributes across the three relations (loss and gain). And
+because the figure is never symmetric, it never returns to itself: **that
+scalene-ness is the spiral.** The carrier is not a group but the figure's
+shape-space; movement is a path through it.
+
+The invariant we had been calling *parity* now has a geometric body:
+**orientation = the signed area of the role-triangle.**
+- An orientation-*preserving* deformation (a "turn") keeps the sign of the area —
+  the figure warps but stays the same hand: §2.7's *deformation within a type*.
+- An orientation-*reversing* move (a "flip", the swap) requires the area to pass
+  through **zero** — collinear, degenerate — and emerge the other sign: §2.7's
+  *cut*. So the swap is not a flip imposed from outside; it is a **zero-area
+  crossing**, a threshold event inside the continuous deformation. The role-level
+  topological cut and the figure's degeneracy are the same thing.
+
+This is also what would make ℂ load-bearing rather than ornamental (#2): the plane
+carries an orientation, and conjugation (`z ↦ z̄`) *is* orientation-reversal. So
+swap = conjugation = area-sign flip = zero-crossing — irreducibly 2-D (rotations
+multiply, reflections conjugate; non-abelian), not the angle-addition a single
+real phase could fake. (A note on Spencer-Brown: `f = ¬f` has no real solution
+because negation is this reflection; the resolving value lies off the real line —
+the dimension a relation requires when it turns on itself.)
+
+The Euthyphro, located: hold C as the modulator (the pivot); let the angle at C
+close toward 0; the legs swing onto one ray, A and B crowd together, AB shortens
+and concentrates ("short and thick"); at angle 0 the three are collinear (zero
+area); push through and orientation flips — **A and B reverse, pivoting on a C that
+never stopped being C.** The swap fires at *maximal intensity, minimal extension*.
+
+> **Open — the typology (#2/#5; held for the aporia corpus).** *Locked:* the
+> mechanism above — a deformable scalene figure, orientation = signed area, swap =
+> zero-area crossing; this supersedes the finite-group picture. *Open:* the
+> **typology** of degeneracies. There are three (the angle at C → 0 swaps A↔B,
+> preserving the modulator — the gentle, Euthyphro case; the angles at A or B → 0
+> swap the modulator *itself* — the violent case). Are both real? Is parity the
+> whole invariant, or only the first — does catastrophe theory's cusp-and-beyond
+> apply past the simple fold? This is a germ whose field is the
+> aporia / paradox / contradiction corpus, not yet walked. Resolve it by *walking
+> that corpus* — a first real passage for the built engine — not by inscribing a
+> typology ahead of the reading (#9).
 
 **No circle ever closes.** What looks like a circle is the path
 `1 → i → −1 → −i → 1` projected onto the real axis — the imaginary legs dropped,
@@ -465,11 +507,13 @@ re-seed from the prior map's affordances, walk again, accrete the orbit of
 neighbourhoods. The survey *is* this iteration. Comparing successive maps,
 divergence is information and convergence is information — a **map of the maps**.
 
-This is the spiral one scale up, self-similar (the eddy_ledger already said eddies
-contain sub-eddies of the same structure). The divergence/convergence between
-map_n and map_{n+1} is *displacement at the map scale*; the map-of-maps is its
-rotation-log; its conic regime is the survey's regime. No new machinery — the walk
-machinery applied to maps-as-terms.
+This is the spiral one scale up — **structurally** self-similar (the eddy_ledger
+already said eddies contain sub-eddies of the same structure), but **not
+dynamically** so (§2.18): the machinery recurs, the parameters flow. The
+divergence/convergence between map_n and map_{n+1} is *displacement at the map
+scale*; the map-of-maps is its rotation-log; its conic regime is the survey's
+regime. No new machinery — the walk machinery applied to maps-as-terms — but the
+*behaviour* at each scale is regime-local.
 
 Two consequences:
 - **A second timescale.** Step-time (within a walk) vs iteration-time (across
@@ -508,6 +552,48 @@ that neither converges nor clearly diverges is not a special case — it halts i
 its *intermittency is itself invariant* (stable statistics), and runs on, correctly,
 only while that character is still drifting.
 
+One sharpening (§2.18): the **self-similar** halt must mean *dynamically*
+self-similar — the parameters (local couplings, holonomy) have converged — not
+merely *morphologically* self-similar. Shape-recurrence is cheap (the triangle
+always recurs) and is never a halt.
+
+### 2.18 Transport: structure is locally self-similar, globally rotated
+
+Self-similarity is **structural, not dynamical.** The role-triangle recurs as a
+*shape* across scales, regimes, and domains; its *behaviour* is set by where it
+sits. The same structure scaled up, translated, transposed retains its form but not
+its symmetry: **local symmetry gives way to global asymmetry.** This is
+renormalization — a structure can be a fixed point of the scaling flow, recognisable
+at every scale, while the effective couplings that govern its motion change as you
+scale.
+
+Formally this is a **connection on a curved manifold, and the alteration is
+holonomy.** Transport a structure (the Euthyphro, say) around a loop —
+Greece → late antiquity → Reformation → post-industrial capitalism. The
+conceptual-historical manifold is *curved* (the regimes are not equivalent), so the
+structure does not return unchanged: it returns **recognisable but rotated**.
+Parallel transport preserved the shape (still the Euthyphro); the curvature supplied
+a holonomy (its movements differ). Locally the manifold looks flat and symmetric;
+globally it is curved, and transport reveals the asymmetry. This is the transport
+layer flagged from the start (the medium that carries velocity and loss) made
+geometric — the fiber-bundle / connection / holonomy apparatus.
+
+Consequences:
+- **The rotation is the holonomy.** "Succession by rotation, not inheritance"
+  (§2.6) now has a body: the pattern recurs *rotated by the curvature it was carried
+  through* — never copied. An aporia does not pass its behaviour down a lineage; it
+  is parallel-transported through a curved field and arrives turned.
+- **Curvature is where the regime-difference lives.** Flat stretches transport the
+  structure unchanged; curved stretches alter it. Curvature ≈ the rate of
+  behavioural alteration per unit transport, and its concentrations are
+  high-sensitivity, near-threshold sites — the affordances of §2.13 at this scale.
+- **Pattern matches are morphological only (constraint #13).** When the engine
+  finds "this is the circular-determination germ again," it has found a *shape*
+  recurring; it must **not** infer the behaviour recurs. Dynamics are re-walked
+  locally, read off the local connection, never inherited from the template's prior
+  instances. Same shape, different holonomy, different motion. The pattern library
+  stores shapes; behaviour is always local.
+
 ---
 
 ## 3. CorpusProvider
@@ -530,7 +616,17 @@ class CorpusProvider(ABC):
 ```
 
 Implementations: `DirectoryProvider` (Phase 1). `BiblioProvider` (Phase 2,
-reading from the Bibliography's JSON entries + topic_map — kept decoupled).
+reading from the Bibliography's JSON entries + topic_map — kept decoupled). A
+`NotesProvider` is high value: the analyst's notes/ledgers are already extracted by
+the best available carrier (a mind), sidestepping the NLP commitments below.
+
+> **Notes vs. source is itself the dial (axis-2, §2.7/§2.15).** Walking the
+> analyst's own notes is a **continuity-skew**: it stays in your gradient, and
+> walked *alone* it closes the loop — the engine only re-finds what you already saw
+> (the circle, self-confirmation). Walking raw source is a **discontinuity-skew**:
+> lossy through extraction, but able to cut into the not-yet-yours, the
+> disconfirming. So it is not notes *instead of* source — it is notes *and* source
+> as the two ends of the dial applied to the choice of source. The echo and the cut.
 
 > **Role-neutrality (walker model).** "Corpus" names a *role* a source plays on a
 > given passage, not a property of the source. Every deposited thing — primary
@@ -613,7 +709,10 @@ class OperativeZero:
     is_virtual: bool
     approach_direction: float  # +1 diverging; -1 converging; 0 oscillating
     distance_from_current: float
-    regime: str                # conic label: circle|ellipse|parabola|hyperbola|spiral
+    regime: str                # conic label: near_circular|elliptical|parabolic|hyperbolic
+                               # NOT "circle": e=0 is the unreachable limit, never an
+                               # instantiated value (#9 applies to data models too).
+                               # The figure is always scalene, so |z| is always > 0.
 
 # core/propagation.py
 class PropagationMode(Enum):
@@ -656,7 +755,12 @@ class RemainderEntry:      # what a step left behind
 
 @dataclass
 class Eddy:
+    """Two layers (converging the handbuilt eddy_ledger with the engine output):
+    the ENGINE layer is computed; the ANALYST-ANNOTATION layer is the handbuilt
+    ledger's interpretively-rich fields, filled by hand. Same object, two layers —
+    the system/analyst boundary (§2.14) in the data model."""
     id: str; scale: str; source: str
+    # --- engine layer (computed) ---
     fields_in_rotation: list[str]
     vocabulary_rotations: list[VocabRotation]
     interference_character: Optional[InterferenceCharacter]
@@ -664,9 +768,12 @@ class Eddy:
     remainder: list[RemainderEntry]
     operative_zero: Optional[OperativeZero]
     steps: list[PassageStep]
-    # analyst annotation fields (empty from engine):
+    # --- analyst-annotation layer (empty from engine; the handbuilt ledger fields) ---
     dominant_field: Optional[str]; feeds_into: list[str]
-    structural_pattern: Optional[PatternMatch]; annotations: str
+    structural_pattern: Optional[PatternMatch]
+    source_texts: list[dict]            # handbuilt: author/title/relevance
+    interference_prose: str             # handbuilt: the rich "what appeared"
+    annotations: str
 ```
 
 ### 5.1 Target schemas (walker refactor, Phase 2 — not yet implemented)
@@ -678,17 +785,23 @@ displacement a rotation rather than a scalar.
 # core/displacement.py  (target)
 @dataclass
 class Displacement:
-    """The gap between origin and near-pass, per loop. COMPLEX: a magnitude and a
-    phase. real = potential-change; imag = role-rotation (the phase a relation
-    accrues when it turns on itself — Spencer-Brown's imaginary value)."""
-    potential: float         # real part: Δφ over the loop
-    role_phase: float        # imag part: accumulated role-rotation (radians);
-                             #   half-turn for a 2-role swap, third-turn for A→B→C→A
-    # magnitude = abs(z) = the remainder, NEVER zero (no circle closes);
-    # the sequence of magnitudes gives the spiral pitch;
-    # d(magnitude)/d(loop) gives stability (§2.6).
-    # A real circle (magnitude 0) is the operative zero of the conic family:
-    # approached, never instantiated as an actual value.
+    """The gap between origin and near-pass, per loop, read off the DEFORMABLE
+    SCALENE role-triangle (§2.5). potential = Δφ; orientation = sign of the
+    triangle's signed area; role_phase = accumulated turn. The swap is a zero-area
+    crossing (orientation flip = conjugation), which is what would make ℂ
+    load-bearing. PROVISIONAL — the typology of degeneracies is held open for the
+    aporia corpus (§2.5, #2/#5)."""
+    potential: float         # Δφ over the loop
+    role_phase: float        # accumulated turn (orientation-preserving part)
+    orientation: int         # sign(signed_area): +1 / -1; flips at a zero-area crossing (a swap)
+    # magnitude = the remainder, NEVER zero (the figure is always scalene — no
+    # exact symmetry to close it); its sequence gives the spiral pitch;
+    # d(magnitude)/d(loop) gives stability (§2.6). The circle (zero magnitude) is
+    # the operative zero of the conic family — approached, never instantiated.
+
+def signed_area(a: Term, b: Term, c: Term, field) -> float:   # (target) §2.5
+    """Orientation of the role-triangle. Its sign is parity; a swap is its zero-crossing."""
+    ...
 
 # passage/run.py  (target) — the run signature
 @dataclass
@@ -861,7 +974,8 @@ research-indexer/
 │
 ├── corpus/                 # CorpusProvider implementations
 │   ├── base.py             # CorpusProvider ABC
-│   └── directory.py        # DirectoryProvider (text + PDF files)
+│   ├── directory.py        # DirectoryProvider (text + PDF files)
+│   └── notes.py            # (target) NotesProvider — pre-extracted by a mind (§3)
 │
 ├── extract/                # Text → SimplexNetwork
 │   ├── base.py             # SimplexExtractor ABC + TheoreticalCommitment
@@ -884,7 +998,11 @@ research-indexer/
 │   └── plans/              # Russell, Debord, Sacks, Vintagia, Waite, ...
 │
 ├── map/                    # (target) the deliverable — §2.13
-│   └── map.py              # Map, Affordance
+│   ├── map.py              # Map, Affordance
+│   └── iterate.py          # MapSequence, HaltRegime (§2.16–2.17)
+│
+├── transport/              # (target) holonomy across regimes — §2.18
+│   └── holonomy.py         # carry a structure; read the rotation; curvature
 │
 ├── services/               # SOA layer
 │   ├── passage_service.py
@@ -915,7 +1033,15 @@ These commitments are machine-readable (`TheoreticalCommitment` objects) and
 tracked by `analyze/commitment.py` to distinguish field-genuine results from
 extractor artifacts.
 
----
+> **The weak link, named.** These commitments *compound*: grammatical agency is not
+> conceptual agency, sentential context is not the only modulation, TF-IDF flattens
+> rhetorical weight. Every simplex is pre-rotated by them before the passage begins,
+> and the engine risks largely re-finding what the extractor already inscribed.
+> Three mitigations: the commitment trace (above); the Phase-4 alternative
+> extractors; and — highest value — the **`NotesProvider`** (§3), since the
+> analyst's notes are already extracted by a richer carrier (a mind). Walking notes
+> is a continuity-skew (it can self-confirm); walking source is the discontinuity it
+> needs. Use both.
 
 ## 10. Design Constraints
 
@@ -987,6 +1113,12 @@ extractor artifacts.
     structured discontinuity proves it). No collapse to a single dial; collapsing
     is itself a sense-skew (#9).
 
+13. **Pattern matches are morphological, never dynamical (§2.18).** Structural
+    recurrence (the same triangle/germ) does not imply behavioural recurrence. A
+    `PatternMatcher` hit reports a *shape*; the dynamics are re-walked locally
+    (read off the local connection / holonomy), never inherited from the template's
+    prior instances. Same shape, different holonomy, different motion.
+
 ---
 
 ## 11. Roadmap
@@ -1005,14 +1137,20 @@ extractor artifacts.
   becomes the central object; the network becomes its deposited trace
 - **Run signature `(A, B, modulation)`** — a seed simplex; retire `(network, germ)`.
   Sources become role-neutral (the run takes a simplex, not a provider)
-- **Complex `Displacement`** — real = potential-change, imag = role-rotation;
-  magnitude = remainder (never zero); spiral pitch and stability derive from it
-- **Conic regime** on `OperativeZero` (ellipse/parabola/hyperbola; circle = the
-  unreachable limit / operative zero of the family — never an actual state)
+- **`Displacement` off the deformable figure** — potential = Δφ, role_phase = turn,
+  orientation = sign(signed area); swap = zero-area crossing (§2.5); magnitude
+  (remainder) never zero; spiral pitch and stability derive from it
+- **Conic regime** on `OperativeZero` (near_circular/elliptical/parabolic/hyperbolic;
+  the circle is the unreachable limit, never an instantiated value)
 - **Split `regime_change`** into `deformation` vs `topological_cut` (closed↔open)
+- **`NotesProvider`** — walk the analyst's notes/ledgers (pre-extracted by a mind);
+  pair with source-walking as the two ends of the source-dial (§3)
 - `analyze/differential.py` — convergence/divergence maps
-- `analyze/compare.py` — projection comparison (transduction + closure detection:
-  who keeps the spiral open, who closes it)
+- `analyze/compare.py` — projection comparison: transduction + closure detection +
+  **structural irony** (run on the text's explicit claims vs its actual vocabulary;
+  the divergence is the irony = generative exclusion = holonomy at the rhetorical
+  scale; note the "claims vs vocabulary" split is a second extraction, heir to the
+  NLP commitments)
 - `analyze/phase.py` — phase transition detection
 - `analyze/commitment.py` — commitment trace
 - `BiblioProvider` — reads Bibliography JSON entries + topic_map
@@ -1029,13 +1167,27 @@ extractor artifacts.
   subjectivity; terrain + affordances; the map re-enters as input (the map-of-maps,
   the spiral one scale up); halt on the invariant of the variation, default
   non-clinging (#11). No `decide()`/`push()` (#10).
-- `PatternMatcher` — detects known germ templates in new passages
+- `GermDetector` **etymological mode** — flag terms whose senses occupy distinct
+  roles (principle/principal = ground/authority = A/C; stasis; apostolic/apostasy):
+  a collapsed role-rotation sedimented into a lexeme — *frozen holonomy* (§2.18),
+  the term's transport-history crystallised as polysemy
+- `PatternMatcher` — detects known germ templates in new passages (matches are
+  morphological only, #13: a shape, not a behaviour)
+- `Transport` / holonomy (§2.18) — carry a structure across regimes; read the
+  holonomy (the behavioural alteration); curvature ≈ near-threshold sensitivity
 - `Fold` — two-network interference (question-as-projection meets corpus)
 - Parameter discovery (probe text dynamics; don't pre-set engine regime)
 
-**Still open (next spec pass): #2 / #5** — make role-phase genuinely multiplicative
-(roots of unity) so the complex displacement is load-bearing, not ornamental;
-resolve the half-turn vs third-turn ambiguity.
+**Held open — the aporia typology (#2/#5), by design.** *Locked:* the mechanism —
+role-change is the continuous deformation of a scalene role-triangle; orientation =
+signed area; the swap = a zero-area crossing (orientation flip = conjugation, which
+is what makes ℂ load-bearing). This supersedes the finite-group / 2π-over-n picture.
+*Open:* the **typology** — the three degeneracies (modulator-preserving swap vs
+modulator-swapping), whether parity is the whole invariant or only the first
+(cusp-and-beyond), whether both kinds are real. This is a **germ whose field is the
+aporia / paradox / contradiction corpus** (not yet walked). It is *not* a spec pass
+to schedule but a **first real passage for the built engine** — walk that corpus and
+let the typology fall out, do not inscribe it ahead of the reading (#9).
 
 **Phase 4 — Additional extractors**
 - `ArgumentExtractor`, `CorpusExtractor`, `StructuredDataExtractor`
