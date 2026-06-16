@@ -1,6 +1,6 @@
 # research-indexer — Specification
 
-> Version: 0.8
+> Version: 0.9
 > Status: Working draft
 
 ---
@@ -594,6 +594,40 @@ Consequences:
   instances. Same shape, different holonomy, different motion. The pattern library
   stores shapes; behaviour is always local.
 
+### 2.19 Irony, read in movements (not in claims)
+
+Structural irony is the **generative-exclusion** signature: a text disavows X and
+performs X anyway — the closure (the disavowal) producing what it excludes. The
+tempting detector — compare what the text *claims* against what it *does* — must be
+refused. It imports **proposition-primacy**: it treats the assertion as a layer the
+engine can read. The engine cannot. The model runs on *movements* (fields in
+rotation, vocabulary migrating, crossings), not propositions — and the disavowal is
+pure illocution, exactly the force the NLPExtractor is committed to *suppressing*
+(§9). A claims-based detector is built on the extractor's own blind spot.
+
+So irony is read **in the vocabulary/field movements, not in the claims.** Its
+footprint is a *field active without a passage to it*:
+
+- An *acknowledged* crossing into a foreign field appears as **transduction with a
+  bridge** — the terms that license the passage.
+- **Irony is the foreign field present *without* the bridge** — vocabulary that
+  arrived without a licensed crossing. Presence without passage. (Foreign = active
+  yet conceptually distant from the dominant field in the topic_map cross-listing
+  graph.)
+
+The disavowal is never parsed; it shows up as **negative space** — the *missing*
+bridge. You do not build a bridge to where you claim not to go, so the vocabulary
+arrives bridgeless. (A disavowal, if present, is an *anti-bridge* — over-determination,
+not a requirement.) In the model's own terms this is **interference whose
+transductive source is missing** — unaccounted interference — and it reuses the
+§2.6 / §2.15 apparatus rather than adding a propositional layer.
+
+And the boundary holds (§2.14, §10): the engine does **not** detect irony — that
+judgment needs the disavowal, which is the analyst's to read. The engine flags the
+**site** (foreign field, no bridge — unlicensed migration); the analyst names it
+irony, or an unmarked-but-legitimate move, or drift. Reconnaissance flags; command
+judges.
+
 ---
 
 ## 3. CorpusProvider
@@ -1119,6 +1153,14 @@ extractor artifacts.
     (read off the local connection / holonomy), never inherited from the template's
     prior instances. Same shape, different holonomy, different motion.
 
+14. **Movements, not propositions (§2.19).** The engine reads field-activations,
+    rotations, and crossings — never assertions. A text's *claims* are the analyst's
+    register, not the engine's; proposition-primacy is a foreign closure (and rests
+    on illocutionary force the extractor suppresses, §9). Phenomena that look
+    propositional — irony, disavowal, contradiction — are read in their movement-
+    footprints (e.g. irony = a foreign field present without a transductive bridge),
+    and the engine flags the site rather than naming the act.
+
 ---
 
 ## 11. Roadmap
@@ -1147,10 +1189,12 @@ extractor artifacts.
   pair with source-walking as the two ends of the source-dial (§3)
 - `analyze/differential.py` — convergence/divergence maps
 - `analyze/compare.py` — projection comparison: transduction + closure detection +
-  **structural irony** (run on the text's explicit claims vs its actual vocabulary;
-  the divergence is the irony = generative exclusion = holonomy at the rhetorical
-  scale; note the "claims vs vocabulary" split is a second extraction, heir to the
-  NLP commitments)
+  **structural-irony siting** (§2.19). NOT "claims vs vocabulary" (that imports
+  proposition-primacy, and rests on the illocutionary force the extractor suppresses,
+  §9). Instead, field-distribution only: a **foreign field active without a
+  transductive bridge** — presence without licensed passage; the disavowal is the
+  *missing* bridge (negative space), never parsed. The engine flags the *site*; the
+  analyst names the irony (#10/#14)
 - `analyze/phase.py` — phase transition detection
 - `analyze/commitment.py` — commitment trace
 - `BiblioProvider` — reads Bibliography JSON entries + topic_map
